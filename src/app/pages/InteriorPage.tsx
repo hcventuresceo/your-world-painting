@@ -9,14 +9,14 @@ interface InteriorPageProps {
 const interiorTestimonials = [
   {
     name: "Jasmine R.",
-    location: "Rochester, NY",
-    text: "Malik did an amazing job on our living room and hallways. He was professional, clean, and the colors came out exactly how we envisioned. We've already booked him for two more rooms. Highly recommend Your World Painting!",
+    location: "Henrietta, NY",
+    text: "Just bought my first home and wanted to make it feel like mine before moving in. Malik did the entire main floor — living room, dining room, hallways, and all the trim. He matched colors to my furniture from photos I texted him. My family couldn't believe it was the same house.",
     rating: 5,
   },
   {
     name: "Marcus T.",
-    location: "Irondequoit, NY",
-    text: "Best painter I've hired. He prepped everything perfectly, no drips, no mess. The accent wall in our bedroom looks incredible. Fast, affordable, and high quality — you can't beat that.",
+    location: "Penfield, NY",
+    text: "Had Malik do our master bedroom and a chalkboard wall in the kids' room. The bedroom came out clean, edges were razor sharp. The chalkboard wall has been the highlight of my kids' entire year. He's the only painter we'll ever call.",
     rating: 5,
   },
 ];

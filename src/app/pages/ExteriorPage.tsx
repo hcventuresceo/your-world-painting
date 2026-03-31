@@ -9,14 +9,14 @@ interface ExteriorPageProps {
 const exteriorTestimonials = [
   {
     name: "Darius W.",
-    location: "Rochester, NY",
-    text: "Had Malik repaint the entire exterior of our house. The transformation was unreal. He power washed, prepped every inch, and the finish looks brand new. Neighbors keep asking who did the work.",
+    location: "Webster, NY",
+    text: "Our house hadn't been painted in 15 years — peeling, faded, embarrassing. Malik came out, looked at everything, and gave me a straight price with no hidden fees. His crew power washed, scraped, primed, and painted the whole thing in three days. Looks like a brand new house. Three neighbors have already asked for his number.",
     rating: 5,
   },
   {
     name: "Tiffany L.",
-    location: "Pittsford, NY",
-    text: "He painted our front door and porch trim and it completely changed the curb appeal. Super professional, showed up on time, and the gloss finish on the door is perfect. Will definitely call again.",
+    location: "Brighton, NY",
+    text: "I manage a few rental properties in Rochester and finding a reliable painter has always been a nightmare. Malik is now my go-to for everything. Painted the exterior on two of my units, redid the porch on a third. Always on time, always clean, always communicates. That's rare.",
     rating: 5,
   },
 ];

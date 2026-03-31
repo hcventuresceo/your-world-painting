@@ -5,10 +5,12 @@ const testimonials = [
   { name: "Latoya H.", location: "Irondequoit, NY", rating: 5 },
   { name: "Marcus B.", location: "Pittsford, NY", rating: 5 },
   { name: "Sandra R.", location: "Greece, NY", rating: 5 },
-  { name: "James P.", location: "Rochester, NY", rating: 5 },
+  { name: "James P.", location: "Webster, NY", rating: 5 },
   { name: "Keisha M.", location: "Brighton, NY", rating: 5 },
-  { name: "Jasmine R.", location: "Rochester, NY", rating: 5 },
-  { name: "Marcus T.", location: "Irondequoit, NY", rating: 5 },
+  { name: "Jasmine R.", location: "Henrietta, NY", rating: 5 },
+  { name: "Marcus T.", location: "Penfield, NY", rating: 5 },
+  { name: "Tanya B.", location: "Fairport, NY", rating: 5 },
+  { name: "David O.", location: "Rochester, NY", rating: 5 },
 ];
 
 export function Testimonials() {

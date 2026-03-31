@@ -28,10 +28,10 @@ export function Contact({ onEstimateClick }: ContactProps) {
               ))}
             </div>
             <p className="text-xl italic text-white mb-4 leading-relaxed">
-              "Quick response, fair price, great quality. Malik even helped me pick the final color. Very happy with the whole experience."
+              "Three painters flaked on me before I found Malik. He picked up the phone, came out the next day, and had the job done by the weekend. Best decision I made for this house."
             </p>
-            <p className="font-semibold text-gray-200">— Sandra R.</p>
-            <p className="text-sm text-gray-300">Greece, NY</p>
+            <p className="font-semibold text-gray-200">— James P.</p>
+            <p className="text-sm text-gray-300">Webster, NY</p>
           </div>
 
           {/* Right side - CTA */}

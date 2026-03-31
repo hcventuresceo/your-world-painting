@@ -4,25 +4,25 @@ const testimonials = [
   {
     name: "Darnell W.",
     location: "Rochester, NY",
-    text: "Malik and his crew knocked out our living room, hallway, and stairwell in two days. Everything was taped, covered, and protected before they even opened a can. Zero mess. The walls look cleaner than when we moved in. Already booked them back for the upstairs.",
+    text: "I've hired three painters in the last five years and every one left me disappointed. Malik was different from the first call. Showed up on time, covered everything before touching a wall, and the finished product was better than I imagined. Living room, hallway, stairwell — two days. Already booked him back.",
     rating: 5,
   },
   {
     name: "Latoya H.",
     location: "Irondequoit, NY",
-    text: "I was going back and forth on whether to replace my kitchen cabinets or refinish them. Malik talked me through it, showed me some examples, and the refinish came out looking brand new. Saved me thousands. Couldn't be happier with how it turned out.",
+    text: "My kitchen cabinets were embarrassing me. I almost spent $8k on replacements until a friend said call Malik first. He refinished them for a fraction of the cost and they look better than new cabinets would have. The color he suggested was perfect. This man knows what he's doing.",
     rating: 5,
   },
   {
     name: "Marcus B.",
     location: "Pittsford, NY",
-    text: "We had the exterior done before listing our house. Malik showed up when he said he would, power washed everything first, and the repaint was immaculate. Our realtor said it was one of the best curb appeal upgrades she'd seen. We had multiple offers in the first week.",
+    text: "We were listing our house and needed the exterior to pop. Malik came out, gave us an honest quote same day, power washed and prepped everything, and finished ahead of schedule. Our realtor called it a game changer. Four offers the first weekend. Worth every dollar.",
     rating: 5,
   },
   {
     name: "Sandra R.",
     location: "Greece, NY",
-    text: "Needed an accent wall for my home office and had no idea what color to go with. Malik helped me pick something that actually worked with the lighting in the room. Came out exactly how I pictured it. Fast, clean, and priced right.",
+    text: "Turned our spare room into a home office and wanted an accent wall but had no clue where to start. Malik asked me three questions about the lighting and furniture and came back with two options. The one we picked looks like something out of a magazine. Fast, clean, no drama.",
     rating: 5,
   },
 ];
