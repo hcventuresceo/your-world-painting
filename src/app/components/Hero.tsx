@@ -7,17 +7,17 @@ interface HeroProps {
 
 export function Hero({ onEstimateClick }: HeroProps) {
   return (
-    <section className="relative min-h-[580px] md:h-[700px] flex items-center justify-center">
+    <section className="relative min-h-[75vh] md:min-h-[90vh] flex items-start">
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
           alt="Malik from Your World Painting working on interior walls in Rochester, NY"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/40"></div>
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-16 md:py-0 text-white">
+      <div className="relative z-10 container mx-auto px-4 pt-16 pb-16 md:pt-20 text-white">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
             Rochester's Trusted Painting Professionals

@@ -69,8 +69,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white pb-[64px] md:pb-0">
-      <AnnouncementBar />
+    <div className="min-h-screen bg-white pt-[33px] pb-[64px] md:pb-0">
+      <AnnouncementBar onEstimateClick={openEstimateModal} />
       <Header
         onEstimateClick={openEstimateModal}
         currentPage={currentPage}

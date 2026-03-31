@@ -16,15 +16,15 @@ export function Header({ onEstimateClick, currentPage = "home", onNavigate }: He
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-[52px] z-40">
+    <header className="bg-white shadow-sm sticky top-[33px] z-40">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between py-3">
+        <div className="flex items-center justify-between py-2">
           {/* Logo */}
           <button
             onClick={() => handleNavClick("home")}
             className="flex items-center gap-3 hover:opacity-90 transition-opacity"
           >
-            <img src={logoImg} alt="Your World Painting" className="h-12 w-auto" />
+            <img src={logoImg} alt="Your World Painting" className="h-16 w-auto" />
           </button>
 
           {/* Navigation Menu */}
