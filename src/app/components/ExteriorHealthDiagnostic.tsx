@@ -38,7 +38,7 @@ interface ExteriorHealthDiagnosticProps {
 
 export function ExteriorHealthDiagnostic({ onCardClick }: ExteriorHealthDiagnosticProps) {
   const handleCardClick = (cardIndex: number) => {
-    let hookText = "Rochester weather is brutal on homes. Ricardo can stop the damage before it gets expensive. Where should we send your estimate?";
+    let hookText = "Buffalo weather is brutal on homes. Ricardo can stop the damage before it gets expensive. Where should we send your estimate?";
     let service = "";
     let header = "";
 
@@ -65,14 +65,14 @@ export function ExteriorHealthDiagnostic({ onCardClick }: ExteriorHealthDiagnost
   };
 
   return (
-    <section className="py-12 bg-[#f4f9f4]">
+    <section className="py-12 bg-[#f8f8f8]">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-[#1e6b22] mb-3 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mb-3 text-center">
             Exterior Home Health Diagnostic
           </h2>
           <p className="text-lg text-[#5a5a5a] mb-10 text-center max-w-2xl mx-auto">
-            Which of these issues is affecting your Rochester home? Click to get your custom solution.
+            Which of these issues is affecting your Buffalo home? Click to get your custom solution.
           </p>
 
           {/* Diagnostic Cards Grid */}
@@ -118,7 +118,7 @@ export function ExteriorHealthDiagnostic({ onCardClick }: ExteriorHealthDiagnost
           </div>
 
           <p className="text-center text-[#5a5a5a] mt-8">
-            Rochester weather is tough on homes. Don't wait until minor issues turn into major expenses.
+            Buffalo weather is tough on homes. Don't wait until minor issues turn into major expenses.
           </p>
         </div>
       </div>

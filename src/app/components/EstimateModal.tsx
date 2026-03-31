@@ -115,38 +115,38 @@ export function EstimateModal({
 
         {isSubmitting ? (
           <div style={{ textAlign: "center", padding: "48px 0" }}>
-            <Loader2 size={56} color="#1e6b22" style={{ animation: "spin 1s linear infinite", margin: "0 auto 16px" }} />
-            <p style={{ color: "#5a5a5a", fontSize: "18px", fontWeight: 500 }}>Sending your request to Ricardo...</p>
+            <Loader2 size={56} color="#111827" style={{ animation: "spin 1s linear infinite", margin: "0 auto 16px" }} />
+            <p style={{ color: "#5a5a5a", fontSize: "18px", fontWeight: 500 }}>Sending your request to Malik...</p>
             <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
           </div>
         ) : submitted ? (
           <div style={{ textAlign: "center", padding: "32px 0" }}>
             <div style={{ position: "relative", display: "inline-block", marginBottom: "24px" }}>
-              <Smartphone size={72} color="#1e6b22" strokeWidth={1.5} />
-              <div style={{ position: "absolute", top: "-4px", right: "-4px", background: "#1e6b22", borderRadius: "50%", padding: "6px" }}>
+              <Smartphone size={72} color="#111827" strokeWidth={1.5} />
+              <div style={{ position: "absolute", top: "-4px", right: "-4px", background: "#111827", borderRadius: "50%", padding: "6px" }}>
                 <MessageCircle size={16} color="white" fill="white" />
               </div>
             </div>
-            <div style={{ fontSize: "28px", fontWeight: 700, color: "#1e6b22", marginBottom: "12px" }}>✅ Request Received!</div>
-            <p style={{ fontSize: "18px", fontWeight: 600, color: "#3a3a3a", marginBottom: "12px" }}>Ricardo will reach out shortly.</p>
+            <div style={{ fontSize: "28px", fontWeight: 700, color: "#111827", marginBottom: "12px" }}>✅ Request Received!</div>
+            <p style={{ fontSize: "18px", fontWeight: 600, color: "#3a3a3a", marginBottom: "12px" }}>Malik will reach out shortly.</p>
             <p style={{ fontSize: "14px", color: "#5a5a5a", lineHeight: 1.6, marginBottom: "24px" }}>
               To speed things up, text a photo of the project to{" "}
-              <a href="sms:5856903190" style={{ color: "#1e6b22", fontWeight: 600 }}>(585) 690-3190</a>.
+              <a href="sms:7168150333" style={{ color: "#111827", fontWeight: 600 }}>(716) 815-0333</a>.
             </p>
             <button
               onClick={close}
-              style={{ backgroundColor: "#1e6b22", color: "white", border: "none", borderRadius: "8px", padding: "14px 32px", fontSize: "16px", fontWeight: 600, cursor: "pointer" }}
+              style={{ backgroundColor: "#111827", color: "white", border: "none", borderRadius: "8px", padding: "14px 32px", fontSize: "16px", fontWeight: 600, cursor: "pointer" }}
             >
               Close
             </button>
           </div>
         ) : (
           <>
-            <h2 style={{ fontSize: "22px", fontWeight: 700, color: "#1e6b22", marginBottom: "4px", marginTop: 0, paddingRight: "32px" }}>
+            <h2 style={{ fontSize: "22px", fontWeight: 700, color: "#111827", marginBottom: "4px", marginTop: 0, paddingRight: "32px" }}>
               {customHeader || "Get Your Free Estimate"}
             </h2>
             <p style={{ fontSize: "14px", color: "#5a5a5a", marginBottom: "20px" }}>
-              {hookText || "Fill out the form and Ricardo will contact you within the hour."}
+              {hookText || "Fill out the form and Malik will contact you within the hour."}
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -158,7 +158,7 @@ export function EstimateModal({
                   onChange={e => setName(e.target.value)}
                   required
                   placeholder="John Smith"
-                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #9dbfa0", borderRadius: "6px", fontSize: "16px", boxSizing: "border-box" }}
+                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "16px", boxSizing: "border-box" }}
                 />
               </div>
 
@@ -170,7 +170,7 @@ export function EstimateModal({
                   onChange={e => setPhone(e.target.value)}
                   required
                   placeholder="(585) 000-0000"
-                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #9dbfa0", borderRadius: "6px", fontSize: "16px", boxSizing: "border-box" }}
+                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "16px", boxSizing: "border-box" }}
                 />
               </div>
 
@@ -180,26 +180,23 @@ export function EstimateModal({
                   value={service}
                   onChange={e => setService(e.target.value)}
                   required
-                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #9dbfa0", borderRadius: "6px", fontSize: "16px", backgroundColor: "white", boxSizing: "border-box" }}
+                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "16px", backgroundColor: "white", boxSizing: "border-box" }}
                 >
                   <option value="" disabled>Select a service</option>
-                  <option value="bathroom">Bathroom Remodel</option>
-                  <option value="kitchen">Kitchen Remodel</option>
-                  <option value="basement">Basement Finish</option>
-                  <option value="flooring">Flooring Install</option>
-                  <option value="painting">Painting</option>
-                  <option value="drywall">Drywall & Framing</option>
-                  <option value="deck">Deck & Porch Repair</option>
-                  <option value="doors-windows">Doors & Windows</option>
-                  <option value="siding">Siding & Soffit</option>
-                  <option value="general">General Repairs</option>
+                  <option value="interior">Interior Painting</option>
+                  <option value="exterior">Exterior Painting</option>
+                  <option value="accent-wall">Accent / Feature Wall</option>
+                  <option value="cabinets">Cabinet Refinishing</option>
+                  <option value="deck-staining">Deck & Porch Staining</option>
+                  <option value="doors-trim">Door & Trim Painting</option>
+                  <option value="commercial">Commercial Painting</option>
                   <option value="other">Other</option>
                 </select>
               </div>
 
               <button
                 type="submit"
-                style={{ width: "100%", backgroundColor: "#1e6b22", color: "white", border: "none", borderRadius: "8px", padding: "16px", fontSize: "18px", fontWeight: 600, cursor: "pointer" }}
+                style={{ width: "100%", backgroundColor: "#111827", color: "white", border: "none", borderRadius: "8px", padding: "16px", fontSize: "18px", fontWeight: 600, cursor: "pointer" }}
               >
                 Send My Request
               </button>

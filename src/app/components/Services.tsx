@@ -93,10 +93,10 @@ const services = [
 
 export function Services() {
   return (
-    <section className="py-16 md:py-24 bg-[#f4f9f4]">
+    <section className="py-16 md:py-24 bg-[#f8f8f8]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1e6b22] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             Our Services
           </h2>
           <p className="text-lg text-[#5a5a5a] max-w-2xl mx-auto">
@@ -122,10 +122,10 @@ export function Services() {
                 </div>
                 <div className="p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2 bg-[#1e6b22]/10 rounded">
-                      <Icon className="size-6 text-[#1e6b22]" />
+                    <div className="p-2 bg-[#111827]/10 rounded">
+                      <Icon className="size-6 text-[#111827]" />
                     </div>
-                    <h3 className="text-xl font-semibold text-[#1e6b22]">
+                    <h3 className="text-xl font-semibold text-[#111827]">
                       {service.title}
                     </h3>
                   </div>

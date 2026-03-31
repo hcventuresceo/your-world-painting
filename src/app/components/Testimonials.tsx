@@ -3,22 +3,22 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Evangelyn M.",
-    location: "Rochester, NY",
+    location: "Buffalo, NY",
     rating: 5,
   },
   {
     name: "Kevin Kless",
-    location: "Rochester, NY",
+    location: "Buffalo, NY",
     rating: 5,
   },
   {
     name: "Denise Thomas",
-    location: "Rochester, NY",
+    location: "Buffalo, NY",
     rating: 5,
   },
   {
     name: "Tonjua Levens",
-    location: "Rochester, NY",
+    location: "Buffalo, NY",
     rating: 5,
   },
 ];

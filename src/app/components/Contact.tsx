@@ -7,7 +7,7 @@ interface ContactProps {
 
 export function Contact({ onEstimateClick }: ContactProps) {
   return (
-    <section className="py-16 md:py-24 bg-[#1e6b22] text-white">
+    <section className="py-16 md:py-24 bg-[#111827] text-white">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           Get Your Free Estimate Today
@@ -31,7 +31,7 @@ export function Contact({ onEstimateClick }: ContactProps) {
               "Trustworthy, easy to work with, reasonable cost, and does an outstanding job in a timely manner."
             </p>
             <p className="font-semibold text-gray-200">— Denise Thomas</p>
-            <p className="text-sm text-gray-300">Rochester, NY</p>
+            <p className="text-sm text-gray-300">Buffalo, NY</p>
           </div>
 
           {/* Right side - CTA */}
@@ -42,11 +42,11 @@ export function Contact({ onEstimateClick }: ContactProps) {
 
             <div className="flex flex-col sm:flex-row lg:flex-col items-center lg:items-start gap-4 mb-6">
               <a
-                href="tel:5856903190"
+                href="tel:7168150333"
                 className="flex items-center gap-2 text-lg hover:underline"
               >
                 <Phone className="size-5" />
-                <span>585-690-3190</span>
+                <span>716-815-0333</span>
               </a>
 
               <a
@@ -60,7 +60,7 @@ export function Contact({ onEstimateClick }: ContactProps) {
 
             <Button
               onClick={() => onEstimateClick()}
-              className="bg-white text-[#1e6b22] hover:bg-gray-100 text-lg font-medium px-8 py-4 min-h-[56px] w-full sm:w-auto"
+              className="bg-white text-[#111827] hover:bg-gray-100 text-lg font-medium px-8 py-4 min-h-[56px] w-full sm:w-auto"
             >
               Start Your Project
             </Button>

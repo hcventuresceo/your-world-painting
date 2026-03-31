@@ -1,9 +1,9 @@
-import bathroomImg from "@/assets/bathroom-after-1.jpg";
-import deckImg from "@/assets/deck-after-1.jpg";
-import sidingImg from "@/assets/siding-full.jpg";
-import doorImg from "@/assets/siding-red-door.jpg";
-import interiorImg from "@/assets/bathroom-after-2.jpg";
-import crewImg from "@/assets/crew-job-site.jpg";
+import interiorWallImg from "@/assets/interior-hallway-after.jpg";
+import interiorAccentImg from "@/assets/interior-accent-wall.jpg";
+import interiorCabinetImg from "@/assets/interior-cabinets.jpg";
+import exteriorHouseImg from "@/assets/exterior-house-blue.jpg";
+import exteriorDoorImg from "@/assets/exterior-door-black.jpg";
+import exteriorCrewImg from "@/assets/exterior-crew-working.jpg";
 
 interface ServiceRoutingProps {
   onNavigate?: (page: string) => void;
@@ -12,46 +12,46 @@ interface ServiceRoutingProps {
 
 const serviceRoutes = [
   {
-    title: "Bathroom Remodel",
-    description: "Full tile, vanity, fixtures, and finishes",
-    image: bathroomImg,
+    title: "Interior Painting",
+    description: "Walls, ceilings, trim — flawless finish guaranteed",
+    image: interiorWallImg,
     page: "interior",
-    service: "bathroom",
+    service: "interior",
   },
   {
-    title: "Deck & Porch Repair",
-    description: "Rebuilds, refinishing, rotted wood replacement",
-    image: deckImg,
-    page: "exterior",
-    service: "deck",
-  },
-  {
-    title: "Siding & Soffit",
-    description: "Vinyl siding install, repair, and fascia work",
-    image: sidingImg,
-    page: "exterior",
-    service: "siding",
-  },
-  {
-    title: "Doors & Windows",
-    description: "Exterior door install, window replacement, sealing",
-    image: doorImg,
-    page: "exterior",
-    service: "doors-windows",
-  },
-  {
-    title: "Flooring & Interior",
-    description: "Flooring, painting, drywall, and framing",
-    image: interiorImg,
+    title: "Accent & Feature Walls",
+    description: "Bold statements, chalkboard, two-tone designs",
+    image: interiorAccentImg,
     page: "interior",
-    service: "flooring",
+    service: "accent-wall",
   },
   {
-    title: "General Home Repairs",
-    description: "Handyman, rotted wood, weatherproofing & more",
-    image: crewImg,
+    title: "Cabinet Refinishing",
+    description: "Fresh cabinets without the cost of replacement",
+    image: interiorCabinetImg,
+    page: "interior",
+    service: "cabinets",
+  },
+  {
+    title: "Exterior House Painting",
+    description: "Full exterior repaints, power wash & prep included",
+    image: exteriorHouseImg,
     page: "exterior",
-    service: "general",
+    service: "exterior",
+  },
+  {
+    title: "Door & Trim Painting",
+    description: "Doors, shutters, fascia — curb appeal upgrade",
+    image: exteriorDoorImg,
+    page: "exterior",
+    service: "doors-trim",
+  },
+  {
+    title: "Deck & Porch Staining",
+    description: "Weathered wood restored and protected",
+    image: exteriorCrewImg,
+    page: "exterior",
+    service: "deck-staining",
   },
 ];
 
@@ -65,10 +65,10 @@ export function ServiceRouting({ onNavigate, onEstimateClick }: ServiceRoutingPr
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#f4f9f4]">
+    <section className="py-16 md:py-24 bg-[#f8f8f8]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1e6b22] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             What Do You Need Done?
           </h2>
           <p className="text-lg text-[#5a5a5a]">

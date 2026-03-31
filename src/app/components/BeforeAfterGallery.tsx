@@ -1,73 +1,49 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
-import bathroomAfter1 from "@/assets/bathroom-after-1.jpg";
-import bathroomAfter2 from "@/assets/bathroom-after-2.jpg";
-import bathroomTileShower from "@/assets/bathroom-tile-shower.jpg";
-import bathroomFullRoom from "@/assets/bathroom-full-room.jpg";
-import deckBefore from "@/assets/deck-before.jpg";
-import deckProgress from "@/assets/deck-progress.jpg";
-import deckAfter1 from "@/assets/deck-after-1.jpg";
-import deckAfter2 from "@/assets/deck-after-2.jpg";
-import kitchenAfter1 from "@/assets/kitchen-after-1.jpg";
-import kitchenAfter2 from "@/assets/kitchen-after-2.jpg";
-import kitchenAfter3 from "@/assets/kitchen-after-3.jpg";
+import interiorHallway from "@/assets/interior-hallway-after.jpg";
+import interiorAccentWall from "@/assets/interior-accent-wall.jpg";
+import interiorBedroom from "@/assets/interior-bedroom-after.jpg";
+import interiorTrim from "@/assets/interior-trim-after.jpg";
+import interiorCabinets from "@/assets/interior-cabinets.jpg";
+import exteriorDoor from "@/assets/exterior-door-black.jpg";
+import exteriorHouseBlue from "@/assets/exterior-house-blue.jpg";
 
 const projects = [
   {
-    category: "Kitchen Remodel – Full View",
+    category: "Interior – Clean White Hallway & Staircase",
     label: "AFTER",
-    image: kitchenAfter1,
+    image: interiorHallway,
   },
   {
-    category: "Kitchen Remodel – Countertops & Backsplash",
+    category: "Interior – Chalkboard Accent Wall",
     label: "AFTER",
-    image: kitchenAfter2,
+    image: interiorAccentWall,
   },
   {
-    category: "Kitchen Remodel – Cabinetry Detail",
+    category: "Interior – Two-Tone Bedroom",
     label: "AFTER",
-    image: kitchenAfter3,
+    image: interiorBedroom,
   },
   {
-    category: "Deck Rebuild – Before",
-    label: "BEFORE",
-    image: deckBefore,
+    category: "Interior – Trim & Closet Refresh",
+    label: "AFTER",
+    image: interiorTrim,
   },
   {
-    category: "Deck Rebuild – In Progress",
+    category: "Interior – Cabinet Refinishing",
     label: "DURING",
-    image: deckProgress,
+    image: interiorCabinets,
   },
   {
-    category: "Deck Rebuild – Finished (Top View)",
+    category: "Exterior – Gloss Black Door Finish",
     label: "AFTER",
-    image: deckAfter1,
+    image: exteriorDoor,
   },
   {
-    category: "Deck Rebuild – Finished (Side View)",
+    category: "Exterior – Full House Paint (Blue/Grey)",
     label: "AFTER",
-    image: deckAfter2,
-  },
-  {
-    category: "Bathroom Remodel – Marble Tile & Matte Black Fixtures",
-    label: "AFTER",
-    image: bathroomTileShower,
-  },
-  {
-    category: "Bathroom Remodel – Full Room Finish",
-    label: "AFTER",
-    image: bathroomFullRoom,
-  },
-  {
-    category: "Bathroom Remodel – Marble Shower Niche",
-    label: "AFTER",
-    image: bathroomAfter1,
-  },
-  {
-    category: "Bathroom Remodel – Luxury Panel System",
-    label: "AFTER",
-    image: bathroomAfter2,
+    image: exteriorHouseBlue,
   },
 ];
 
@@ -83,23 +59,22 @@ export function BeforeAfterGallery() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-[#f9f7f5]">
+    <section className="py-16 md:py-24 bg-[#f8f8f8]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1e6b22] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             See the Transformation
           </h2>
+          <p className="text-[#5a5a5a] text-lg">Real jobs. Real results. Right here in WNY.</p>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          {/* Project Label */}
           <div className="text-center mb-6">
-            <h3 className="text-2xl font-semibold text-[#1e6b22]">
+            <h3 className="text-2xl font-semibold text-[#111827]">
               {projects[currentIndex].category}
             </h3>
           </div>
 
-          {/* Before/After Image */}
           <div className="relative">
             <div className="w-full h-[420px] md:h-[560px] rounded-lg shadow-lg overflow-hidden">
               <img
@@ -107,22 +82,20 @@ export function BeforeAfterGallery() {
                 alt={`${projects[currentIndex].category}`}
                 className="w-full h-full object-cover object-center"
               />
-              {/* Phase badge */}
               <div className={`absolute top-4 left-4 px-3 py-1 rounded text-sm font-bold text-white ${
                 projects[currentIndex].label === "BEFORE" ? "bg-red-600" :
                 projects[currentIndex].label === "DURING" ? "bg-amber-500" :
-                "bg-[#1e6b22]"
+                "bg-[#111827]"
               }`}>
                 {projects[currentIndex].label}
               </div>
             </div>
 
-            {/* Navigation Arrows */}
             {projects.length > 1 && (
               <>
                 <Button
                   onClick={prevSlide}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#1e6b22] rounded-full p-3 shadow-lg"
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#111827] rounded-full p-3 shadow-lg"
                   aria-label="Previous project"
                 >
                   <ChevronLeft className="size-6" />
@@ -130,7 +103,7 @@ export function BeforeAfterGallery() {
 
                 <Button
                   onClick={nextSlide}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#1e6b22] rounded-full p-3 shadow-lg"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#111827] rounded-full p-3 shadow-lg"
                   aria-label="Next project"
                 >
                   <ChevronRight className="size-6" />
@@ -139,21 +112,18 @@ export function BeforeAfterGallery() {
             )}
           </div>
 
-          {/* Dots */}
-          {projects.length > 1 && (
-            <div className="flex justify-center gap-2 mt-8">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-[#1e6b22]" : "bg-gray-300"
-                  }`}
-                  aria-label={`Go to project ${index + 1}`}
-                />
-              ))}
-            </div>
-          )}
+          <div className="flex justify-center gap-2 mt-8">
+            {projects.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  index === currentIndex ? "bg-[#111827]" : "bg-gray-300"
+                }`}
+                aria-label={`Go to project ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

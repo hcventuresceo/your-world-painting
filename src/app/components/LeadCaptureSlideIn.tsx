@@ -53,7 +53,7 @@ export function LeadCaptureSlideIn() {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 z-40 w-[360px] bg-white rounded-lg shadow-2xl border-2 border-[#1e6b22] transition-all duration-500 ${
+      className={`fixed bottom-6 right-6 z-40 w-[360px] bg-white rounded-lg shadow-2xl border-2 border-[#111827] transition-all duration-500 ${
         isVisible ? "translate-x-0 opacity-100" : "translate-x-[120%] opacity-0"
       }`}
       style={{ maxWidth: "calc(100vw - 3rem)" }}
@@ -71,7 +71,7 @@ export function LeadCaptureSlideIn() {
         {isSubmitted ? (
           // Success State
           <div className="text-center py-4">
-            <div className="text-2xl font-bold text-[#1e6b22] mb-2">
+            <div className="text-2xl font-bold text-[#111827] mb-2">
               🎉 You're in!
             </div>
             <p className="text-[#5a5a5a]">
@@ -83,13 +83,13 @@ export function LeadCaptureSlideIn() {
           <>
             {/* Icon */}
             <div className="flex justify-center mb-4">
-              <div className="bg-[#1e6b22] rounded-full p-3">
+              <div className="bg-[#111827] rounded-full p-3">
                 <Gift className="size-8 text-white" />
               </div>
             </div>
 
             {/* Heading */}
-            <h3 className="text-xl font-bold text-[#1e6b22] text-center mb-2">
+            <h3 className="text-xl font-bold text-[#111827] text-center mb-2">
               🎁 Save $25 on your first repair!
             </h3>
 
@@ -107,12 +107,12 @@ export function LeadCaptureSlideIn() {
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 placeholder="(585) 000-0000"
                 required
-                className="border-[#9dbfa0] h-11 text-base"
+                className="border-[#e5e7eb] h-11 text-base"
               />
 
               <Button
                 type="submit"
-                className="w-full bg-[#1e6b22] hover:bg-[#15571a] text-white px-8 py-4 text-base font-semibold"
+                className="w-full bg-[#111827] hover:bg-[#1f2937] text-white px-8 py-4 text-base font-semibold"
               >
                 Get My Discount
               </Button>

@@ -10,15 +10,13 @@ export function AnnouncementBar() {
 
     // March (2), April (3), May (4)
     if (currentMonth >= 2 && currentMonth <= 4) {
-      return "🌧️ Spring Rain Alert: Get a Free Gutter & Siding Integrity Check with any quote this month.";
+      return "🌸 Spring Special: Book your exterior paint job now before the summer rush — limited slots available!";
     }
-    // October (9), November (10), December (11), January (0)
     else if (currentMonth >= 9 || currentMonth === 0) {
-      return "❄️ Heat Loss Alert: Is your front door costing you $50/month? Get a Free Energy Audit with any quote.";
+      return "❄️ Winter Interior Special: Now's the perfect time for interior painting — free color consultation included.";
     }
-    // Summer/Fall (June-September)
     else {
-      return "☀️ Summer Special: Get a Free 10-Point Exterior Integrity Check with any quote this month.";
+      return "☀️ Summer's Here: Transform your home's curb appeal before the season ends — get a free estimate today!";
     }
   };
 

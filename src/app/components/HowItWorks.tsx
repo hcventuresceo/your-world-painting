@@ -23,10 +23,10 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-16 md:py-24 bg-[#f4f9f4]">
+    <section className="py-16 md:py-24 bg-[#f8f8f8]">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1e6b22] mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             How It Works
           </h2>
           <p className="text-lg text-[#5a5a5a] max-w-2xl mx-auto">
@@ -44,12 +44,12 @@ export function HowItWorks() {
                     <div className="p-5 bg-[#3a3a3a] rounded-full">
                       <Icon className="size-10 text-white" />
                     </div>
-                    <div className="absolute -top-2 -right-2 bg-[#1e6b22] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
+                    <div className="absolute -top-2 -right-2 bg-[#111827] text-white w-8 h-8 rounded-full flex items-center justify-center font-bold">
                       {index + 1}
                     </div>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold text-[#1e6b22] mb-2">
+                <h3 className="text-xl font-semibold text-[#111827] mb-2">
                   {step.title}
                 </h3>
                 <p className="text-[#5a5a5a]">{step.description}</p>

@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import { Button } from "./ui/button";
-import logoImg from "@/assets/logo.png";
+import logoImg from "@/assets/ywp-logo.png";
 
 interface HeaderProps {
   onEstimateClick: (hookText?: string) => void;
@@ -24,45 +24,45 @@ export function Header({ onEstimateClick, currentPage = "home", onNavigate }: He
             onClick={() => handleNavClick("home")}
             className="flex items-center gap-3 hover:opacity-90 transition-opacity"
           >
-            <img src={logoImg} alt="Ricardo's Home Repair LLC" className="h-12 w-auto" />
+            <img src={logoImg} alt="Your World Painting" className="h-12 w-auto" />
           </button>
 
           {/* Navigation Menu */}
           <nav className="hidden md:flex items-center gap-6">
             <a
-              href="tel:5856903190"
-              className="flex items-center gap-1.5 text-[#1e6b22] font-semibold hover:text-[#15571a] transition-colors"
+              href="tel:7168150333"
+              className="flex items-center gap-1.5 text-[#111827] font-semibold hover:text-[#1f2937] transition-colors"
             >
               <Phone className="size-4" />
-              <span>585-690-3190</span>
+              <span>716-815-0333</span>
             </a>
             <button
               onClick={() => handleNavClick("interior")}
-              className={`text-[#3a3a3a] hover:text-[#1e6b22] transition-colors font-medium ${
-                currentPage === "interior" ? "text-[#1e6b22]" : ""
+              className={`text-[#3a3a3a] hover:text-[#111827] transition-colors font-medium ${
+                currentPage === "interior" ? "text-[#111827]" : ""
               }`}
             >
               Interior
             </button>
             <button
               onClick={() => handleNavClick("exterior")}
-              className={`text-[#3a3a3a] hover:text-[#1e6b22] transition-colors font-medium ${
-                currentPage === "exterior" ? "text-[#1e6b22]" : ""
+              className={`text-[#3a3a3a] hover:text-[#111827] transition-colors font-medium ${
+                currentPage === "exterior" ? "text-[#111827]" : ""
               }`}
             >
               Exterior
             </button>
             <button
               onClick={() => handleNavClick("about")}
-              className={`text-[#3a3a3a] hover:text-[#1e6b22] transition-colors font-medium ${
-                currentPage === "about" ? "text-[#1e6b22]" : ""
+              className={`text-[#3a3a3a] hover:text-[#111827] transition-colors font-medium ${
+                currentPage === "about" ? "text-[#111827]" : ""
               }`}
             >
               About
             </button>
             <Button
               onClick={() => onEstimateClick()}
-              className="bg-[#1e6b22] hover:bg-[#15571a] text-white text-base font-semibold px-6 py-3 min-h-[48px]"
+              className="bg-[#111827] hover:bg-[#1f2937] text-white text-base font-semibold px-6 py-3 min-h-[48px]"
             >
               Free Estimate
             </Button>
@@ -71,7 +71,7 @@ export function Header({ onEstimateClick, currentPage = "home", onNavigate }: He
           {/* Mobile: just logo + estimate button, sticky bar handles call */}
           <button
             onClick={() => onEstimateClick()}
-            className="md:hidden bg-[#1e6b22] hover:bg-[#15571a] text-white text-base font-semibold px-5 py-3 min-h-[48px] rounded-md"
+            className="md:hidden bg-[#111827] hover:bg-[#1f2937] text-white text-base font-semibold px-5 py-3 min-h-[48px] rounded-md"
           >
             Free Estimate
           </button>
