@@ -1,0 +1,78 @@
+import { useState } from "react";
+import { Header } from "./components/Header";
+import { Hero } from "./components/Hero";
+import { WhyChoose } from "./components/WhyChoose";
+import { ServiceRouting } from "./components/ServiceRouting";
+import { BeforeAfterGallery } from "./components/BeforeAfterGallery";
+import { Testimonials } from "./components/Testimonials";
+import { TestimonialsSection } from "./components/TestimonialsSection";
+import { Contact } from "./components/Contact";
+import { Footer } from "./components/Footer";
+import { EstimateModal } from "./components/EstimateModal";
+import { LeadCaptureSlideIn } from "./components/LeadCaptureSlideIn";
+import { AnnouncementBar } from "./components/AnnouncementBar";
+import { StickyMobileBar } from "./components/StickyMobileBar";
+import { InteriorPage } from "./pages/InteriorPage";
+import { ExteriorPage } from "./pages/ExteriorPage";
+import { AboutPage } from "./pages/AboutPage";
+
+export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState("home");
+  const [modalHookText, setModalHookText] = useState<string | undefined>(undefined);
+  const [preSelectedService, setPreSelectedService] = useState<string | undefined>(undefined);
+  const [customHeader, setCustomHeader] = useState<string | undefined>(undefined);
+
+  const openEstimateModal = (hookText?: string, service?: string, header?: string) => {
+    setModalHookText(hookText);
+    setPreSelectedService(service);
+    setCustomHeader(header);
+    setIsModalOpen(true);
+  };
+
+  const handleNavigate = (page: string) => {
+    console.log('handleNavigate called with page:', page);
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
+  const renderPage = () => {
+    console.log('Current page:', currentPage);
+    switch (currentPage) {
+      case "interior":
+        return <InteriorPage onEstimateClick={openEstimateModal} />;
+      case "exterior":
+        return <ExteriorPage onEstimateClick={openEstimateModal} />;
+      case "about":
+        return <AboutPage onEstimateClick={openEstimateModal} />;
+      default:
+        return (
+          <>
+            <Hero onEstimateClick={openEstimateModal} />
+            <Testimonials />
+            <WhyChoose />
+            <ServiceRouting onNavigate={handleNavigate} onEstimateClick={openEstimateModal} />
+            <BeforeAfterGallery />
+            <TestimonialsSection />
+            <Contact onEstimateClick={openEstimateModal} />
+          </>
+        );
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white pb-[64px] md:pb-0">
+      <AnnouncementBar />
+      <Header
+        onEstimateClick={openEstimateModal}
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+      />
+      {renderPage()}
+      <Footer />
+      <EstimateModal open={isModalOpen} onOpenChange={setIsModalOpen} hookText={modalHookText} preSelectedService={preSelectedService} customHeader={customHeader} />
+      <LeadCaptureSlideIn />
+      <StickyMobileBar />
+    </div>
+  );
+}
