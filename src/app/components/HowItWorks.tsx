@@ -3,21 +3,21 @@ import { FileText, Home, Hammer } from "lucide-react";
 const steps = [
   {
     icon: FileText,
-    title: "Request Free Estimate",
+    title: "Request a Free Estimate",
     description:
-      "Fill out our quick form or give us a call to describe your project.",
+      "Fill out our quick form or give us a call. Takes less than 2 minutes. Text photos if you have them.",
   },
   {
     icon: Home,
-    title: "On-Site Evaluation",
+    title: "On-Site Walkthrough",
     description:
-      "Ricardo will visit your home to assess the work and provide a detailed quote.",
+      "Malik visits your home, walks the project, and gives you a clear quote — no surprises.",
   },
   {
     icon: Hammer,
-    title: "Professional Repair or Remodel",
+    title: "We Paint, You Relax",
     description:
-      "We complete your project with quality craftsmanship and attention to detail.",
+      "We show up on time, protect everything, and leave your space looking sharp. Guaranteed.",
   },
 ];
 
@@ -30,7 +30,7 @@ export function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg text-[#5a5a5a] max-w-2xl mx-auto">
-            Getting started with your home repair or remodel is simple.
+            Getting started is simple. Here's how it works.
           </p>
         </div>
 

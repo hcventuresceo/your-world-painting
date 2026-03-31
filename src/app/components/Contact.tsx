@@ -28,16 +28,16 @@ export function Contact({ onEstimateClick }: ContactProps) {
               ))}
             </div>
             <p className="text-xl italic text-white mb-4 leading-relaxed">
-              "Trustworthy, easy to work with, reasonable cost, and does an outstanding job in a timely manner."
+              "Quick response, fair price, great quality. Malik even helped me pick the final color. Very happy with the whole experience."
             </p>
-            <p className="font-semibold text-gray-200">— Denise Thomas</p>
-            <p className="text-sm text-gray-300">Buffalo, NY</p>
+            <p className="font-semibold text-gray-200">— Sandra R.</p>
+            <p className="text-sm text-gray-300">Tonawanda, NY</p>
           </div>
 
           {/* Right side - CTA */}
           <div className="text-center lg:text-left">
             <p className="text-xl mb-6 text-gray-100">
-              Ready to transform your home? Contact Ricardo to discuss your project and receive a no-obligation estimate.
+              Ready to transform your space? Contact Malik to discuss your project and get a no-obligation estimate.
             </p>
 
             <div className="flex flex-col sm:flex-row lg:flex-col items-center lg:items-start gap-4 mb-6">
@@ -50,11 +50,11 @@ export function Contact({ onEstimateClick }: ContactProps) {
               </a>
 
               <a
-                href="mailto:ricardoshomerepair@outlook.com"
+                href="mailto:yourworldpainting@gmail.com"
                 className="flex items-center gap-2 text-lg hover:underline"
               >
                 <Mail className="size-5" />
-                <span>ricardoshomerepair@outlook.com</span>
+                <span>yourworldpainting@gmail.com</span>
               </a>
             </div>
 

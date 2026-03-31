@@ -8,11 +8,11 @@ import exteriorHouseTan from "@/assets/exterior-house-tan.jpg";
 import exteriorCrewWorking from "@/assets/exterior-crew-working.jpg";
 
 const projects = [
-  { category: "Exterior – Full House Paint (Blue/Grey Finish)", image: exteriorHouseBlue },
-  { category: "Exterior – Gloss Black Door & Trim", image: exteriorDoor },
-  { category: "Exterior – Fresh White Porch Ceiling & Trim", image: exteriorPorchTrim },
-  { category: "Exterior – Full Repaint with Fresh Window Trim", image: exteriorHouseTan },
-  { category: "Crew on the Job – Exterior Repaint", image: exteriorCrewWorking },
+  { category: "Exterior – Full House Repaint (Blue/Charcoal + Cream Trim)", image: exteriorHouseBlue },
+  { category: "Exterior – Gloss Black Door", image: exteriorDoor },
+  { category: "Exterior – Fresh White Porch Column & Entry Trim", image: exteriorPorchTrim },
+  { category: "Exterior – House & Deck Repaint (Tan/Beige + Black Trim)", image: exteriorHouseTan },
+  { category: "Exterior – Painted Front Porch & Steps", image: exteriorCrewWorking },
 ];
 
 export function ExteriorGallery() {

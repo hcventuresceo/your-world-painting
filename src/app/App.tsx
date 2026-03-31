@@ -6,6 +6,7 @@ import { ServiceRouting } from "./components/ServiceRouting";
 import { BeforeAfterGallery } from "./components/BeforeAfterGallery";
 import { Testimonials } from "./components/Testimonials";
 import { TestimonialsSection } from "./components/TestimonialsSection";
+import { HowItWorks } from "./components/HowItWorks";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { EstimateModal } from "./components/EstimateModal";
@@ -15,6 +16,8 @@ import { StickyMobileBar } from "./components/StickyMobileBar";
 import { InteriorPage } from "./pages/InteriorPage";
 import { ExteriorPage } from "./pages/ExteriorPage";
 import { AboutPage } from "./pages/AboutPage";
+import { FlyrPage } from "./pages/FlyrPage";
+import { QuotePage } from "./pages/QuotePage";
 
 export default function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,6 +48,10 @@ export default function App() {
         return <ExteriorPage onEstimateClick={openEstimateModal} />;
       case "about":
         return <AboutPage onEstimateClick={openEstimateModal} />;
+      case "flyr":
+        return <FlyrPage onEstimateClick={openEstimateModal} />;
+      case "quote":
+        return <QuotePage />;
       default:
         return (
           <>
@@ -52,6 +59,7 @@ export default function App() {
             <Testimonials />
             <WhyChoose />
             <ServiceRouting onNavigate={handleNavigate} onEstimateClick={openEstimateModal} />
+            <HowItWorks />
             <BeforeAfterGallery />
             <TestimonialsSection />
             <Contact onEstimateClick={openEstimateModal} />

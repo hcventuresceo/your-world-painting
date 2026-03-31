@@ -86,10 +86,18 @@ export function ExteriorPage({ onEstimateClick }: ExteriorPageProps) {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {exteriorServices.map((service, index) => (
-              <div key={index} className="bg-[#f8f8f8] border-2 border-[#e5e7eb] p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-[#3a3a3a] mb-3">{service.title}</h3>
-                <p className="text-[#5a5a5a]">{service.description}</p>
-              </div>
+              <button
+                key={index}
+                type="button"
+                onClick={() => onEstimateClick(`Interested in ${service.title} — get a free estimate.`, "exterior")}
+                className="group bg-[#f8f8f8] border-2 border-[#e5e7eb] hover:border-[#dc2626] hover:bg-white p-6 rounded-lg text-left transition-all duration-200 hover:shadow-md"
+              >
+                <h3 className="text-xl font-bold text-[#3a3a3a] mb-3 group-hover:text-[#dc2626] transition-colors">{service.title}</h3>
+                <p className="text-[#5a5a5a] mb-4">{service.description}</p>
+                <span className="text-sm font-semibold text-[#dc2626] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Get Free Estimate →
+                </span>
+              </button>
             ))}
           </div>
         </div>

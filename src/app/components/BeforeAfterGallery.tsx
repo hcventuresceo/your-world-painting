@@ -11,22 +11,22 @@ import exteriorHouseBlue from "@/assets/exterior-house-blue.jpg";
 
 const projects = [
   {
-    category: "Interior – Clean White Hallway & Staircase",
+    category: "Interior – Staircase & Hallway Full Repaint",
     label: "AFTER",
     image: interiorHallway,
   },
   {
-    category: "Interior – Chalkboard Accent Wall",
-    label: "AFTER",
+    category: "Kids' Room – Chalkboard Accent Wall",
+    label: "BEFORE",
     image: interiorAccentWall,
   },
   {
-    category: "Interior – Two-Tone Bedroom",
+    category: "Kids' Room – Chalkboard Accent Wall",
     label: "AFTER",
     image: interiorBedroom,
   },
   {
-    category: "Interior – Trim & Closet Refresh",
+    category: "Interior – Bedroom with Fresh Trim & Closet",
     label: "AFTER",
     image: interiorTrim,
   },
@@ -36,12 +36,12 @@ const projects = [
     image: interiorCabinets,
   },
   {
-    category: "Exterior – Gloss Black Door Finish",
+    category: "Exterior – Gloss Black Door",
     label: "AFTER",
     image: exteriorDoor,
   },
   {
-    category: "Exterior – Full House Paint (Blue/Grey)",
+    category: "Exterior – Full House Repaint (Blue/Charcoal)",
     label: "AFTER",
     image: exteriorHouseBlue,
   },

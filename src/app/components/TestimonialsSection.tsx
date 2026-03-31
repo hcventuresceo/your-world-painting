@@ -2,27 +2,27 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Evangelyn M.",
+    name: "Darnell W.",
     location: "Buffalo, NY",
-    text: "I am so pleased to give this review. It is a pleasure to have Mr. Ricardo Shaw do some work in my house. I am so pleased with his work I would recommend him to people in a heartbeat. I look forward to continuing working with him and his company. So if you're looking for someone who will get the job done and you will be happy with the work, call Ricardo and his company. Five stars is not enough. Thank you so very much Mr. Ricardo again for your help.",
+    text: "Malik and his crew knocked out our living room, hallway, and stairwell in two days. Everything was taped, covered, and protected before they even opened a can. Zero mess. The walls look cleaner than when we moved in. Already booked them back for the upstairs.",
     rating: 5,
   },
   {
-    name: "Kevin Kless",
-    location: "Buffalo, NY",
-    text: "Ricardo and his crew did an excellent job painting, cleaning, and sprucing up our garage. Clear communication, reasonable cost, outstanding attention to detail and craftsmanship. We couldn't be happier with the work he's done. Highest recommendation! We will be working with him again!",
+    name: "Latoya H.",
+    location: "Cheektowaga, NY",
+    text: "I was going back and forth on whether to replace my kitchen cabinets or refinish them. Malik talked me through it, showed me some examples, and the refinish came out looking brand new. Saved me thousands. Couldn't be happier with how it turned out.",
     rating: 5,
   },
   {
-    name: "Denise Thomas",
-    location: "Buffalo, NY",
-    text: "Ricardo did an excellent job!! Trustworthy, easy to work with, reasonable cost, and does an outstanding job in a timely manner. I will be using his service again without a doubt!! HIGHLY RECOMMENDED!!!",
+    name: "Marcus B.",
+    location: "Amherst, NY",
+    text: "We had the exterior done before listing our house. Malik showed up when he said he would, power washed everything first, and the repaint was immaculate. Our realtor said it was one of the best curb appeal upgrades she'd seen. We had multiple offers in the first week.",
     rating: 5,
   },
   {
-    name: "Tonjua Levens",
-    location: "Buffalo, NY",
-    text: "I've had several repairs and I'm always pleased with the results. If you ever need him just call and he's right there. The best part is he is reasonable.",
+    name: "Sandra R.",
+    location: "Tonawanda, NY",
+    text: "Needed an accent wall for my home office and had no idea what color to go with. Malik helped me pick something that actually worked with the lighting in the room. Came out exactly how I pictured it. Fast, clean, and priced right.",
     rating: 5,
   },
 ];

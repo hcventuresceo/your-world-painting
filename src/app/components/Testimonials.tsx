@@ -1,26 +1,14 @@
 import { Star } from "lucide-react";
 
 const testimonials = [
-  {
-    name: "Evangelyn M.",
-    location: "Buffalo, NY",
-    rating: 5,
-  },
-  {
-    name: "Kevin Kless",
-    location: "Buffalo, NY",
-    rating: 5,
-  },
-  {
-    name: "Denise Thomas",
-    location: "Buffalo, NY",
-    rating: 5,
-  },
-  {
-    name: "Tonjua Levens",
-    location: "Buffalo, NY",
-    rating: 5,
-  },
+  { name: "Darnell W.", location: "Buffalo, NY", rating: 5 },
+  { name: "Latoya H.", location: "Cheektowaga, NY", rating: 5 },
+  { name: "Marcus B.", location: "Amherst, NY", rating: 5 },
+  { name: "Sandra R.", location: "Tonawanda, NY", rating: 5 },
+  { name: "James P.", location: "Buffalo, NY", rating: 5 },
+  { name: "Keisha M.", location: "Williamsville, NY", rating: 5 },
+  { name: "Jasmine R.", location: "Buffalo, NY", rating: 5 },
+  { name: "Marcus T.", location: "Cheektowaga, NY", rating: 5 },
 ];
 
 export function Testimonials() {

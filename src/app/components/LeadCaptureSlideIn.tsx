@@ -90,13 +90,13 @@ export function LeadCaptureSlideIn() {
 
             {/* Heading */}
             <h3 className="text-xl font-bold text-[#111827] text-center mb-2">
-              🎁 Save $25 on your first repair!
+              🎁 Save $25 on your first paint job!
             </h3>
 
             {/* Sub-heading */}
             <p className="text-sm text-[#5a5a5a] text-center mb-5 leading-relaxed">
-              Join Ricardo's VIP list for seasonal maintenance tips and exclusive
-              local discounts.
+              Join Malik's Insider List — be first to know about fresh color
+              trends, local promos, and limited booking slots.
             </p>
 
             {/* Form */}

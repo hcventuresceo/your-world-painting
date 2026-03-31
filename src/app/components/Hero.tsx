@@ -1,5 +1,5 @@
 import { Phone, Shield, Star, MapPin } from "lucide-react";
-import heroImage from "@/assets/interior-malik-painting.jpg";
+import heroImage from "@/assets/hero-crew.jpg";
 
 interface HeroProps {
   onEstimateClick: (hookText?: string) => void;

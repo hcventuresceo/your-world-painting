@@ -10,16 +10,17 @@ interface EstimateModalProps {
 }
 
 const SERVICE_LABELS: Record<string, string> = {
-  bathroom: "Bathroom Remodel",
-  kitchen: "Kitchen Remodel",
-  basement: "Basement Finish",
-  flooring: "Flooring Install",
-  painting: "Painting",
-  drywall: "Drywall & Framing",
-  deck: "Deck & Porch Repair",
-  "doors-windows": "Doors & Windows",
-  siding: "Siding & Soffit",
-  general: "General Repairs",
+  interior: "Interior Painting",
+  exterior: "Exterior Painting",
+  "accent-wall": "Accent / Feature Wall",
+  cabinets: "Cabinet Refinishing",
+  "deck-staining": "Deck & Porch Staining",
+  "doors-trim": "Door & Trim Painting",
+  "power-washing": "Power Washing",
+  "wood-staining": "Wood Staining & Finishing",
+  drywall: "Drywall & Surface Repairs",
+  "water-damage": "Water Damage Repair",
+  commercial: "Commercial Painting",
   other: "Other",
 };
 
@@ -35,6 +36,9 @@ export function EstimateModal({
   const [service, setService] = useState(preSelectedService ?? "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [description, setDescription] = useState("");
+  const [budget, setBudget] = useState("");
+  const [otherService, setOtherService] = useState("");
 
   // Sync service when preSelectedService changes
   useEffect(() => {
@@ -52,6 +56,9 @@ export function EstimateModal({
     setIsSubmitting(false);
     setName("");
     setPhone("");
+    setDescription("");
+    setBudget("");
+    setOtherService("");
     setService(preSelectedService ?? "");
     onOpenChange(false);
   };
@@ -60,13 +67,15 @@ export function EstimateModal({
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await fetch("https://formsubmit.co/ajax/ricardoshomerepair@outlook.com", {
+      await fetch("https://formsubmit.co/ajax/yourworldpainting@gmail.com", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           name,
           phone,
-          service: SERVICE_LABELS[service] || service,
+          service: service === "other" && otherService ? otherService : (SERVICE_LABELS[service] || service),
+          description: description || "Not provided",
+          budget: budget || "Not provided",
           _subject: `New Estimate Request – ${name}`,
           _template: "table",
         }),
@@ -129,9 +138,16 @@ export function EstimateModal({
             </div>
             <div style={{ fontSize: "28px", fontWeight: 700, color: "#111827", marginBottom: "12px" }}>✅ Request Received!</div>
             <p style={{ fontSize: "18px", fontWeight: 600, color: "#3a3a3a", marginBottom: "12px" }}>Malik will reach out shortly.</p>
-            <p style={{ fontSize: "14px", color: "#5a5a5a", lineHeight: 1.6, marginBottom: "24px" }}>
+            <p style={{ fontSize: "14px", color: "#5a5a5a", lineHeight: 1.6, marginBottom: "16px" }}>
               To speed things up, text a photo of the project to{" "}
               <a href="sms:7168150333" style={{ color: "#111827", fontWeight: 600 }}>(716) 815-0333</a>.
+            </p>
+            <p style={{ fontSize: "13px", color: "#9ca3af", marginBottom: "24px" }}>
+              Past customer?{" "}
+              <a href="https://g.page/r/your-world-painting/review" target="_blank" rel="noopener noreferrer" style={{ color: "#dc2626", fontWeight: 600 }}>
+                Leave us a Google review
+              </a>{" "}
+              — it means everything to a small business.
             </p>
             <button
               onClick={close}
@@ -189,10 +205,59 @@ export function EstimateModal({
                   <option value="cabinets">Cabinet Refinishing</option>
                   <option value="deck-staining">Deck & Porch Staining</option>
                   <option value="doors-trim">Door & Trim Painting</option>
+                  <option value="power-washing">Power Washing</option>
+                  <option value="wood-staining">Wood Staining & Finishing</option>
+                  <option value="drywall">Drywall & Surface Repairs</option>
+                  <option value="water-damage">Water Damage Repair</option>
                   <option value="commercial">Commercial Painting</option>
                   <option value="other">Other</option>
                 </select>
               </div>
+
+              {service === "other" && (
+                <div style={{ marginBottom: "16px" }}>
+                  <label style={{ display: "block", fontSize: "14px", color: "#5a5a5a", marginBottom: "6px", fontWeight: 500 }}>What do you need done? *</label>
+                  <input
+                    type="text"
+                    value={otherService}
+                    onChange={e => setOtherService(e.target.value)}
+                    required
+                    placeholder="e.g. Fence painting, garage floor, etc."
+                    style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "16px", boxSizing: "border-box" }}
+                  />
+                </div>
+              )}
+
+              <div style={{ marginBottom: "16px" }}>
+                <label style={{ display: "block", fontSize: "14px", color: "#5a5a5a", marginBottom: "6px", fontWeight: 500 }}>Project Description</label>
+                <textarea
+                  value={description}
+                  onChange={e => setDescription(e.target.value)}
+                  placeholder="e.g. Living room + hallway, walls and trim, about 1,200 sq ft"
+                  rows={3}
+                  style={{ width: "100%", padding: "10px 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "16px", boxSizing: "border-box", resize: "vertical" }}
+                />
+              </div>
+
+              <div style={{ marginBottom: "20px" }}>
+                <label style={{ display: "block", fontSize: "14px", color: "#5a5a5a", marginBottom: "6px", fontWeight: 500 }}>Approximate Budget</label>
+                <select
+                  value={budget}
+                  onChange={e => setBudget(e.target.value)}
+                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "16px", backgroundColor: "white", boxSizing: "border-box" }}
+                >
+                  <option value="">Not sure yet</option>
+                  <option value="under-500">Under $500</option>
+                  <option value="500-1500">$500 – $1,500</option>
+                  <option value="1500-3000">$1,500 – $3,000</option>
+                  <option value="3000-6000">$3,000 – $6,000</option>
+                  <option value="6000+">$6,000+</option>
+                </select>
+              </div>
+
+              <p style={{ fontSize: "12px", color: "#9ca3af", marginBottom: "16px" }}>
+                Have photos? Text them to <a href="sms:7168150333" style={{ color: "#111827" }}>(716) 815-0333</a> after submitting.
+              </p>
 
               <button
                 type="submit"

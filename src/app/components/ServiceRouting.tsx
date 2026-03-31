@@ -3,7 +3,7 @@ import interiorAccentImg from "@/assets/interior-accent-wall.jpg";
 import interiorCabinetImg from "@/assets/interior-cabinets.jpg";
 import exteriorHouseImg from "@/assets/exterior-house-blue.jpg";
 import exteriorDoorImg from "@/assets/exterior-door-black.jpg";
-import exteriorCrewImg from "@/assets/exterior-crew-working.jpg";
+import exteriorDeckImg from "@/assets/exterior-house-tan.jpg";
 
 interface ServiceRoutingProps {
   onNavigate?: (page: string) => void;
@@ -49,7 +49,7 @@ const serviceRoutes = [
   {
     title: "Deck & Porch Staining",
     description: "Weathered wood restored and protected",
-    image: exteriorCrewImg,
+    image: exteriorDeckImg,
     page: "exterior",
     service: "deck-staining",
   },
@@ -88,18 +88,29 @@ export function ServiceRouting({ onNavigate, onEstimateClick }: ServiceRoutingPr
               <img
                 src={route.image}
                 alt={route.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-              {/* Text */}
-              <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-white">
+              {/* Base gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-[#dc2626]/0 group-hover:bg-[#dc2626]/70 transition-all duration-300" />
+              {/* Default text */}
+              <div className="absolute bottom-0 left-0 right-0 p-3 md:p-4 text-white group-hover:opacity-0 transition-opacity duration-200">
                 <h3 className="text-sm md:text-base font-bold leading-tight mb-0.5">
                   {route.title}
                 </h3>
                 <p className="text-xs text-gray-300 hidden md:block leading-snug">
                   {route.description}
                 </p>
+              </div>
+              {/* Hover CTA */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 p-4">
+                <h3 className="text-sm md:text-base font-bold text-center mb-2 leading-tight">
+                  {route.title}
+                </h3>
+                <span className="text-xs md:text-sm font-semibold bg-white text-[#dc2626] px-4 py-2 rounded-full">
+                  Get Free Estimate →
+                </span>
               </div>
             </button>
           ))}
