@@ -31,7 +31,7 @@ export function Contact({ onEstimateClick }: ContactProps) {
               "Quick response, fair price, great quality. Malik even helped me pick the final color. Very happy with the whole experience."
             </p>
             <p className="font-semibold text-gray-200">— Sandra R.</p>
-            <p className="text-sm text-gray-300">Tonawanda, NY</p>
+            <p className="text-sm text-gray-300">Greece, NY</p>
           </div>
 
           {/* Right side - CTA */}

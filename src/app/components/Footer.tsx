@@ -12,7 +12,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <img src={logoImg} alt="Your World Painting" className="h-16 w-auto mb-4" />
             <p className="text-gray-400 text-sm leading-relaxed">
-              Fully licensed &amp; insured painting professionals serving Buffalo, NY and all of WNY.
+              Fully licensed &amp; insured painting professionals serving Rochester, NY and all of Greater Rochester.
             </p>
           </div>
 
@@ -48,13 +48,13 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-white">Service Areas</h4>
             <ul className="space-y-1 text-gray-400 text-sm">
-              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Buffalo, NY</li>
-              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Cheektowaga</li>
-              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Tonawanda</li>
-              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Amherst</li>
-              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Williamsville</li>
-              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Orchard Park</li>
-              <li className="text-gray-500">& surrounding WNY areas</li>
+              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Rochester, NY</li>
+              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Irondequoit</li>
+              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Greece</li>
+              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Pittsford</li>
+              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Brighton</li>
+              <li className="flex items-center gap-1.5"><MapPin className="size-3 text-[#4ade80]" /> Webster</li>
+              <li className="text-gray-500">& all of Monroe County</li>
             </ul>
           </div>
 
@@ -75,7 +75,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-          <p>&copy; {currentYear} Your World Painting · Buffalo, NY · All rights reserved.</p>
+          <p>&copy; {currentYear} Your World Painting · Rochester, NY · All rights reserved.</p>
         </div>
       </div>
     </footer>

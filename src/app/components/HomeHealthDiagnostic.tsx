@@ -38,7 +38,7 @@ interface HomeHealthDiagnosticProps {
 
 export function HomeHealthDiagnostic({ onCardClick }: HomeHealthDiagnosticProps) {
   const handleCardClick = (cardIndex: number) => {
-    let hookText = "Most Buffalo homes face this. Ricardo can fix it in as little as 3 days. Where should he send your custom quote?";
+    let hookText = "Most Rochester homes face this. Ricardo can fix it in as little as 3 days. Where should he send your custom quote?";
     let service = "";
     let header = "";
 
@@ -72,7 +72,7 @@ export function HomeHealthDiagnostic({ onCardClick }: HomeHealthDiagnosticProps)
             Home Health Diagnostic
           </h2>
           <p className="text-lg text-[#5a5a5a] mb-10 text-center max-w-2xl mx-auto">
-            Which of these issues is affecting your Buffalo home? Click to get your custom solution.
+            Which of these issues is affecting your Rochester home? Click to get your custom solution.
           </p>
 
           {/* Diagnostic Cards Grid */}

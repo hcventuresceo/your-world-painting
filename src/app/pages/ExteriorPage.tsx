@@ -9,13 +9,13 @@ interface ExteriorPageProps {
 const exteriorTestimonials = [
   {
     name: "Darius W.",
-    location: "Buffalo, NY",
+    location: "Rochester, NY",
     text: "Had Malik repaint the entire exterior of our house. The transformation was unreal. He power washed, prepped every inch, and the finish looks brand new. Neighbors keep asking who did the work.",
     rating: 5,
   },
   {
     name: "Tiffany L.",
-    location: "Amherst, NY",
+    location: "Pittsford, NY",
     text: "He painted our front door and porch trim and it completely changed the curb appeal. Super professional, showed up on time, and the gloss finish on the door is perfect. Will definitely call again.",
     rating: 5,
   },
@@ -40,7 +40,7 @@ const exteriorServices = [
   },
   {
     title: "Fence Painting & Staining",
-    description: "Wood and metal fences restored with stain or paint. Protection from WNY winters and a clean, finished look.",
+    description: "Wood and metal fences restored with stain or paint. Protection from Rochester winters and a clean, finished look.",
   },
   {
     title: "Commercial Exterior",
@@ -55,7 +55,7 @@ export function ExteriorPage({ onEstimateClick }: ExteriorPageProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Exterior Painting in Buffalo, NY
+              Exterior Painting in Rochester, NY
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">
               Houses · Doors · Trim · Decks · Fences · Commercial
@@ -112,7 +112,7 @@ export function ExteriorPage({ onEstimateClick }: ExteriorPageProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div>
                 <h3 className="text-xl font-bold text-[#3a3a3a] mb-3">Protect Your Home</h3>
-                <p className="text-[#5a5a5a]">WNY winters are brutal. Fresh exterior paint seals your home against moisture, ice, and rot.</p>
+                <p className="text-[#5a5a5a]">Rochester winters are brutal. Fresh exterior paint seals your home against moisture, ice, and rot.</p>
               </div>
               <div>
                 <h3 className="text-xl font-bold text-[#3a3a3a] mb-3">Boost Home Value</h3>

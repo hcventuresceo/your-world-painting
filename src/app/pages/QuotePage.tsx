@@ -89,7 +89,7 @@ export function QuotePage() {
               type="text"
               name="address"
               required
-              placeholder="123 Main St, Buffalo, NY"
+              placeholder="123 Main St, Rochester, NY"
               className="w-full h-12 px-3 border border-[#e5e7eb] rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-[#111827]"
             />
           </div>

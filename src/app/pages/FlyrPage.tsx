@@ -13,7 +13,7 @@ export function FlyrPage({ onEstimateClick }: FlyrPageProps) {
         <div className="absolute inset-0">
           <img
             src={heroImage}
-            alt="Your World Painting — Buffalo, NY"
+            alt="Your World Painting — Rochester, NY"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/65" />
@@ -27,13 +27,13 @@ export function FlyrPage({ onEstimateClick }: FlyrPageProps) {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold mb-3 leading-tight">
-            Buffalo's #1 Painting Crew
+            Rochester's #1 Painting Crew
           </h1>
           <p className="text-lg text-gray-200 mb-2">
             Interior · Exterior · Power Washing · Drywall Repairs
           </p>
           <p className="text-sm text-gray-300 mb-8">
-            Fully licensed &amp; insured · Buffalo, NY &amp; WNY
+            Fully licensed &amp; insured · Rochester, NY &amp; Greater Rochester
           </p>
 
           <div className="flex flex-col gap-3">
@@ -70,7 +70,7 @@ export function FlyrPage({ onEstimateClick }: FlyrPageProps) {
             <p className="text-xs text-gray-400 mt-1">Jobs Completed</p>
           </div>
           <div>
-            <p className="text-2xl font-bold text-[#dc2626]">WNY</p>
+            <p className="text-2xl font-bold text-[#dc2626]">ROC</p>
             <p className="text-xs text-gray-400 mt-1">Based &amp; Trusted</p>
           </div>
         </div>
@@ -112,7 +112,7 @@ export function FlyrPage({ onEstimateClick }: FlyrPageProps) {
             <p className="text-[#3a3a3a] leading-relaxed mb-3">
               "Malik and his crew did an amazing job on our living room and hallway. Clean lines, no drips, everything was covered and protected. Finished in one day and left the place spotless."
             </p>
-            <p className="font-semibold text-[#111827] text-sm">— Darnell W., Buffalo, NY</p>
+            <p className="font-semibold text-[#111827] text-sm">— Darnell W., Rochester, NY</p>
           </div>
         </div>
       </section>

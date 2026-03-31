@@ -3,25 +3,25 @@ import { Star } from "lucide-react";
 const testimonials = [
   {
     name: "Darnell W.",
-    location: "Buffalo, NY",
+    location: "Rochester, NY",
     text: "Malik and his crew knocked out our living room, hallway, and stairwell in two days. Everything was taped, covered, and protected before they even opened a can. Zero mess. The walls look cleaner than when we moved in. Already booked them back for the upstairs.",
     rating: 5,
   },
   {
     name: "Latoya H.",
-    location: "Cheektowaga, NY",
+    location: "Irondequoit, NY",
     text: "I was going back and forth on whether to replace my kitchen cabinets or refinish them. Malik talked me through it, showed me some examples, and the refinish came out looking brand new. Saved me thousands. Couldn't be happier with how it turned out.",
     rating: 5,
   },
   {
     name: "Marcus B.",
-    location: "Amherst, NY",
+    location: "Pittsford, NY",
     text: "We had the exterior done before listing our house. Malik showed up when he said he would, power washed everything first, and the repaint was immaculate. Our realtor said it was one of the best curb appeal upgrades she'd seen. We had multiple offers in the first week.",
     rating: 5,
   },
   {
     name: "Sandra R.",
-    location: "Tonawanda, NY",
+    location: "Greece, NY",
     text: "Needed an accent wall for my home office and had no idea what color to go with. Malik helped me pick something that actually worked with the lighting in the room. Came out exactly how I pictured it. Fast, clean, and priced right.",
     rating: 5,
   },
@@ -42,7 +42,7 @@ export function TestimonialsSection() {
             ))}
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-3">
-            Rated 5.0 by Buffalo Homeowners
+            Rated 5.0 by Rochester Homeowners
           </h2>
           <p className="text-lg text-[#5a5a5a]">
             Real reviews from real local customers.

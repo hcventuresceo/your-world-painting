@@ -11,7 +11,7 @@ export function Hero({ onEstimateClick }: HeroProps) {
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
-          alt="Malik from Your World Painting working on interior walls in Buffalo, NY"
+          alt="Malik from Your World Painting working on interior walls in Rochester, NY"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60"></div>
@@ -20,7 +20,7 @@ export function Hero({ onEstimateClick }: HeroProps) {
       <div className="relative z-10 container mx-auto px-4 py-16 md:py-0 text-white">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-            Buffalo's Trusted Painting Professionals
+            Rochester's Trusted Painting Professionals
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-200 mb-6">
@@ -38,7 +38,7 @@ export function Hero({ onEstimateClick }: HeroProps) {
             </span>
             <span className="flex items-center gap-1.5">
               <MapPin className="size-4 text-[#4ade80]" />
-              Buffalo, NY Local
+              Rochester, NY Local
             </span>
           </div>
 
@@ -60,7 +60,7 @@ export function Hero({ onEstimateClick }: HeroProps) {
           </div>
 
           <p className="text-sm text-gray-300">
-            No obligation · Fast response · Serving Buffalo &amp; WNY
+            No obligation · Fast response · Serving Rochester &amp; Monroe County
           </p>
         </div>
       </div>

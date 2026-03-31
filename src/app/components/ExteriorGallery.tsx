@@ -25,7 +25,7 @@ export function ExteriorGallery() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">Our Exterior Work</h2>
-          <p className="text-[#5a5a5a] text-lg">Real projects, real results — right here in WNY.</p>
+          <p className="text-[#5a5a5a] text-lg">Real projects, real results — right here in Greater Rochester.</p>
         </div>
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-6">

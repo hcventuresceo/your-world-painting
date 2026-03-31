@@ -14,7 +14,7 @@ export function AboutPage({ onEstimateClick }: AboutPageProps) {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">About Your World Painting</h1>
             <p className="text-xl text-gray-200">
-              Buffalo-based. Quality-obsessed. Built on reputation.
+              Rochester-based. Quality-obsessed. Built on reputation.
             </p>
           </div>
         </div>
@@ -38,7 +38,7 @@ export function AboutPage({ onEstimateClick }: AboutPageProps) {
                 Your World Painting was built on one simple belief: every home deserves to look its best, and every homeowner deserves a painter they can trust.
               </p>
               <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
-                I started YWP right here in Buffalo because I saw too many people get burned by painters who overpromised and underdelivered. Sloppy edges, skipped prep, no-shows. I wanted to do it differently.
+                I started YWP right here in Rochester because I saw too many people get burned by painters who overpromised and underdelivered. Sloppy edges, skipped prep, no-shows. I wanted to do it differently.
               </p>
               <p className="text-[#5a5a5a] text-lg leading-relaxed mb-6">
                 Every job I take — from a single accent wall to a full exterior repaint — gets the same attention to detail. I show up on time, I do the prep right, and I don't leave until the job looks exactly how it should.
@@ -47,7 +47,7 @@ export function AboutPage({ onEstimateClick }: AboutPageProps) {
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="size-6 fill-[#f59e0b] text-[#f59e0b]" />
                 ))}
-                <span className="text-[#111827] font-semibold text-lg ml-1">5.0 · Buffalo, NY</span>
+                <span className="text-[#111827] font-semibold text-lg ml-1">5.0 · Rochester, NY</span>
               </div>
               <Button
                 onClick={() => onEstimateClick()}

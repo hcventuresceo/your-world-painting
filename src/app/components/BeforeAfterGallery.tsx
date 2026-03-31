@@ -65,7 +65,7 @@ export function BeforeAfterGallery() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
             See the Transformation
           </h2>
-          <p className="text-[#5a5a5a] text-lg">Real jobs. Real results. Right here in WNY.</p>
+          <p className="text-[#5a5a5a] text-lg">Real jobs. Real results. Right here in Greater Rochester.</p>
         </div>
 
         <div className="max-w-6xl mx-auto">

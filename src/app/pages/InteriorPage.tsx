@@ -9,13 +9,13 @@ interface InteriorPageProps {
 const interiorTestimonials = [
   {
     name: "Jasmine R.",
-    location: "Buffalo, NY",
+    location: "Rochester, NY",
     text: "Malik did an amazing job on our living room and hallways. He was professional, clean, and the colors came out exactly how we envisioned. We've already booked him for two more rooms. Highly recommend Your World Painting!",
     rating: 5,
   },
   {
     name: "Marcus T.",
-    location: "Cheektowaga, NY",
+    location: "Irondequoit, NY",
     text: "Best painter I've hired. He prepped everything perfectly, no drips, no mess. The accent wall in our bedroom looks incredible. Fast, affordable, and high quality — you can't beat that.",
     rating: 5,
   },
@@ -55,7 +55,7 @@ export function InteriorPage({ onEstimateClick }: InteriorPageProps) {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Interior Painting in Buffalo, NY
+              Interior Painting in Rochester, NY
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-200">
               Walls · Ceilings · Cabinets · Trim · Accent Walls

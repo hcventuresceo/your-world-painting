@@ -5,11 +5,11 @@ const benefits = [
     icon: Shield,
     title: "Fully Licensed & Insured",
     description:
-      "Your home and investment are protected. We carry full insurance and maintain all required Buffalo-area licenses.",
+      "Your home and investment are protected. We carry full insurance and maintain all required Rochester-area licenses.",
   },
   {
     icon: MapPin,
-    title: "Buffalo Local Since Day One",
+    title: "Rochester Local Since Day One",
     description:
       "Not a franchise. We live here, work here, and care about our reputation in this community.",
   },
