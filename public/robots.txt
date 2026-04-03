@@ -51,4 +51,4 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
-Sitemap: https://yourworldpainting.com/sitemap.xml
+Sitemap: https://yourworldpaintingny.com/sitemap.xml
