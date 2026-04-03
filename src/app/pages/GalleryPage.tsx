@@ -1,255 +1,290 @@
 import { useState } from "react";
-import { Phone } from "lucide-react";
+import { Phone, Play } from "lucide-react";
 
-// Interior
-import interiorMalik from "@/assets/gallery/gallery-interior-malik-painting.jpg";
-import interiorHallway from "@/assets/gallery/gallery-interior-hallway-after.jpg";
-import interiorStairwell from "@/assets/gallery/gallery-interior-stairwell-after.jpg";
-import interiorBathroom from "@/assets/gallery/gallery-interior-bathroom-after.jpg";
-import interiorBedroom from "@/assets/gallery/gallery-interior-bedroom-after.jpg";
-import interiorCeiling from "@/assets/gallery/gallery-interior-ceiling-painting.jpg";
-import interiorRoom from "@/assets/gallery/gallery-interior-room-after.jpg";
+// ── Stairwell & Drywall Repair ──────────────────────────────────────────────
+import stairwellBefore from "@/assets/gallery/gallery-stairwell-before.jpg";
+import interiorHallwayAfter from "@/assets/gallery/gallery-interior-hallway-after.jpg";
+import interiorStairwellAfter from "@/assets/gallery/gallery-interior-stairwell-after.jpg";
+import videoStairwell from "@/assets/gallery/videos/video-stairwell.mp4";
 
-// Accent Walls
+// ── Kids Bedroom + Chalkboard Accent Wall ───────────────────────────────────
+import bedroomBefore from "@/assets/gallery/gallery-bedroom-before.jpg";
 import accentWallBefore from "@/assets/gallery/gallery-accent-wall-before.jpg";
-import accentChalkboard from "@/assets/gallery/gallery-accent-chalkboard-wall.jpg";
-import accentKidsRoom from "@/assets/gallery/gallery-accent-kids-room.jpg";
 import accentInProgress from "@/assets/gallery/gallery-accent-room-in-progress.jpg";
+import accentChalkboardAfter from "@/assets/gallery/gallery-accent-chalkboard-wall.jpg";
+import accentKidsRoomAfter from "@/assets/gallery/gallery-accent-kids-room.jpg";
+import bedroomAfter from "@/assets/gallery/gallery-interior-bedroom-after.jpg";
+import videoBedroom from "@/assets/gallery/videos/video-bedroom.mp4";
 
-// Exterior
-import exteriorHouseSiding from "@/assets/gallery/gallery-exterior-house-siding.jpg";
-import exteriorInProgress from "@/assets/gallery/gallery-exterior-in-progress.jpg";
-import exteriorSidingAfter from "@/assets/gallery/gallery-exterior-siding-after.jpg";
-import exteriorDoorBefore from "@/assets/gallery/gallery-exterior-door-before.jpg";
-import exteriorBlackDoor from "@/assets/gallery/gallery-exterior-black-door.jpg";
-import exteriorBlueDoors from "@/assets/gallery/gallery-exterior-blue-doors.jpg";
-import exteriorArchBefore from "@/assets/gallery/gallery-exterior-arch-before.jpg";
-import exteriorArchAfter from "@/assets/gallery/gallery-exterior-arch-entrance-after.jpg";
-import exteriorArchPorch from "@/assets/gallery/gallery-exterior-arch-porch.jpg";
+// ── Deck Staining ────────────────────────────────────────────────────────────
+import deckBefore from "@/assets/gallery/gallery-deck-real-before.jpg";
+import deckAfter from "@/assets/gallery/gallery-deck-real-after.jpg";
+import videoDeck from "@/assets/gallery/videos/video-deck.mp4";
 
-// Deck & Porch
-import deckBefore from "@/assets/gallery/gallery-deck-before.jpg";
-import deckStained from "@/assets/gallery/gallery-deck-stained-after.jpg";
-import deckFence from "@/assets/gallery/gallery-deck-fence-before.jpg";
+// ── Front Door & Entryway ────────────────────────────────────────────────────
+import doorEntryBefore from "@/assets/gallery/gallery-door-entryway-before.jpg";
+import doorExteriorBefore from "@/assets/gallery/gallery-exterior-door-before.jpg";
+import doorInProgress from "@/assets/gallery/gallery-door-in-progress.jpg";
+import doorAfter from "@/assets/gallery/gallery-door-after.jpg";
+import doorAfter2 from "@/assets/gallery/gallery-door-after2.jpg";
+
+// ── Exterior Arch Porch ──────────────────────────────────────────────────────
+import archBefore from "@/assets/gallery/gallery-exterior-arch-before.jpg";
+import malikInsideInProgress from "@/assets/gallery/gallery-interior-malik-painting.jpg";
+import archEntranceAfter from "@/assets/gallery/gallery-exterior-arch-entrance-after.jpg";
+import archPorchAfter from "@/assets/gallery/gallery-exterior-arch-porch.jpg";
+import archPorchDetail from "@/assets/gallery/gallery-arch-porch-after-detail.jpg";
+import archExteriorFull from "@/assets/gallery/gallery-arch-exterior-full.jpg";
+import videoArchPorch from "@/assets/gallery/videos/video-arch-porch.mp4";
+
+// ── Exterior Siding ──────────────────────────────────────────────────────────
+import sidingInProgress from "@/assets/gallery/gallery-exterior-in-progress.jpg";
+import sidingAfter from "@/assets/gallery/gallery-exterior-siding-after.jpg";
+
+// ── Bathroom ─────────────────────────────────────────────────────────────────
+import bathroomAfter from "@/assets/gallery/gallery-interior-bathroom-after.jpg";
 
 type Phase = "Before" | "In Progress" | "After";
-
-interface ProjectPhoto {
-  src: string;
-  phase: Phase;
-  caption: string;
-}
+type MediaItem =
+  | { type: "image"; src: string; phase: Phase; caption: string }
+  | { type: "video"; src: string; phase: Phase; caption: string };
 
 interface Project {
   id: string;
   title: string;
-  category: string;
+  services: string[];
   description: string;
-  photos: ProjectPhoto[];
+  media: MediaItem[];
 }
 
-const PHASE_STYLES: Record<Phase, string> = {
-  Before: "bg-gray-600 text-white",
-  "In Progress": "bg-yellow-500 text-white",
+const PHASE_BADGE: Record<Phase, string> = {
+  Before: "bg-[#374151] text-white",
+  "In Progress": "bg-[#d97706] text-white",
   After: "bg-[#16a34a] text-white",
 };
 
 const projects: Project[] = [
   {
-    id: "door-refinish",
-    title: "Front Door Refinish",
-    category: "Exterior",
-    description: "Weathered wood door stripped and repainted gloss black. Total curb appeal transformation.",
-    photos: [
-      { src: exteriorDoorBefore, phase: "Before", caption: "Peeling, faded wood — worn down from the elements" },
-      { src: exteriorBlackDoor, phase: "After", caption: "Painted gloss black — bold, clean, brand new look" },
-    ],
-  },
-  {
     id: "arch-porch",
-    title: "Exterior Porch & Arch Repaint",
-    category: "Exterior",
-    description: "Full porch repaint on a curved-arch entrance. Cleaned up years of wear and weather damage.",
-    photos: [
-      { src: exteriorArchBefore, phase: "Before", caption: "Weathered porch with exposed wood and patching needed" },
-      { src: exteriorArchAfter, phase: "After", caption: "Fresh repaint — crisp white trim and arch detail" },
-      { src: exteriorArchPorch, phase: "After", caption: "Curved porch ceiling and walls — fully restored" },
+    title: "Exterior Arch Porch & Full Exterior Repaint",
+    services: ["Exterior Painting"],
+    description:
+      "Curved porch entrance repainted top to bottom — trim, siding, ceilings, and detail work. Malik also handled interior work on the same property.",
+    media: [
+      { type: "image", src: archBefore, phase: "Before", caption: "Weathered porch entrance — exposed wood, faded paint, needed full restoration" },
+      { type: "video", src: videoArchPorch, phase: "In Progress", caption: "Malik's crew working the arch porch — prep, prime, and paint" },
+      { type: "image", src: malikInsideInProgress, phase: "In Progress", caption: "Interior work on the same property — walls and ceilings" },
+      { type: "image", src: archEntranceAfter, phase: "After", caption: "Arch entrance — fresh white, clean lines" },
+      { type: "image", src: archPorchDetail, phase: "After", caption: "Porch ceiling and wall detail — crisp finish throughout" },
+      { type: "image", src: archPorchAfter, phase: "After", caption: "Curved arch soffit repainted — professional edge work" },
+      { type: "image", src: archExteriorFull, phase: "After", caption: "Full exterior view — complete transformation" },
     ],
   },
   {
-    id: "exterior-house",
-    title: "Full Exterior House Painting",
-    category: "Exterior",
-    description: "Multi-story exterior painted top to bottom. Siding, trim, and detail work all included.",
-    photos: [
-      { src: exteriorHouseSiding, phase: "Before", caption: "Faded siding — dull color, showing age" },
-      { src: exteriorInProgress, phase: "In Progress", caption: "Malik's crew working the walls — prepped and rolling" },
-      { src: exteriorSidingAfter, phase: "After", caption: "Two-tone siding complete — sharp contrast, clean lines" },
+    id: "stairwell-drywall",
+    title: "Stairwell, Hallway & Drywall Repair",
+    services: ["Interior Painting", "Drywall & Surface Repair"],
+    description:
+      "Cracked ceiling, dingy walls, worn trim. Full drywall repair followed by complete repaint — walls, ceilings, and hallway throughout.",
+    media: [
+      { type: "image", src: stairwellBefore, phase: "Before", caption: "Cracked ceiling and dated walls — drywall repair needed before any paint" },
+      { type: "video", src: videoStairwell, phase: "In Progress", caption: "Prep work in progress — drywall, sanding, priming" },
+      { type: "image", src: interiorHallwayAfter, phase: "After", caption: "Hallway after — bright white walls, ceiling fully repaired" },
+      { type: "image", src: interiorStairwellAfter, phase: "After", caption: "Stairwell after — clean from top to bottom" },
     ],
   },
   {
-    id: "blue-doors",
-    title: "Garage Door Color Change",
-    category: "Exterior",
-    description: "Client wanted a bold color upgrade. Went from dull to standout blue — exactly what they asked for.",
-    photos: [
-      { src: exteriorBlueDoors, phase: "After", caption: "Bright blue doors — exactly what the client wanted" },
-    ],
-  },
-  {
-    id: "chalkboard-wall",
-    title: "Chalkboard Accent Wall — Kids Room",
-    category: "Accent Walls",
-    description: "Converted a plain wall into a full chalkboard feature. Kid-friendly, fully functional, and sharp.",
-    photos: [
-      { src: accentWallBefore, phase: "Before", caption: "Old chalkboard wall — chalked up, worn, needed a reset" },
-      { src: accentInProgress, phase: "In Progress", caption: "Room prepped and taped — transformation underway" },
-      { src: accentChalkboard, phase: "After", caption: "Fresh chalkboard wall — smooth, deep black, ready to use" },
-      { src: accentKidsRoom, phase: "After", caption: "Full room view — accent wall anchors the whole space" },
-    ],
-  },
-  {
-    id: "interior-stairwell",
-    title: "Interior Hallway & Stairwell",
-    category: "Interior",
-    description: "Full repaint of a tight stairwell and hallway. Bright white walls, clean trim — makes the space feel twice as big.",
-    photos: [
-      { src: interiorMalik, phase: "In Progress", caption: "Malik rolling the ceiling — full coverage, no drips" },
-      { src: interiorHallway, phase: "After", caption: "Hallway after — bright white from floor to ceiling" },
-      { src: interiorStairwell, phase: "After", caption: "Stairwell fully repainted — clean lines down every step" },
-    ],
-  },
-  {
-    id: "interior-rooms",
-    title: "Interior Room Repaints",
-    category: "Interior",
-    description: "Bedroom, bathroom, and living spaces refreshed. Wall color changes, ceiling work, and trim throughout.",
-    photos: [
-      { src: interiorCeiling, phase: "In Progress", caption: "Ceiling coat being applied — even coverage throughout" },
-      { src: interiorRoom, phase: "After", caption: "Room after — fresh walls and crisp white ceiling" },
-      { src: interiorBedroom, phase: "After", caption: "Bedroom complete — coffered ceiling and painted walls" },
-      { src: interiorBathroom, phase: "After", caption: "Bathroom refreshed in a cool gray tone" },
+    id: "bedroom-accent-wall",
+    title: "Kids Bedroom Full Repaint + Chalkboard Accent Wall",
+    services: ["Interior Painting", "Accent Walls"],
+    description:
+      "Transformed a dated bedroom with peach walls and a wrecked chalkboard into a fully refreshed space — new wall colors, clean chalkboard accent wall, and a coffered ceiling.",
+    media: [
+      { type: "image", src: bedroomBefore, phase: "Before", caption: "Warm peach walls — dated look, needed a full refresh" },
+      { type: "image", src: accentWallBefore, phase: "Before", caption: "Old chalkboard wall — years of chalk buildup and scuffs" },
+      { type: "image", src: accentInProgress, phase: "In Progress", caption: "Room masked and prepped — walls, ceiling, and accent all being worked" },
+      { type: "video", src: videoBedroom, phase: "In Progress", caption: "Mid-job footage — transformation underway" },
+      { type: "image", src: accentChalkboardAfter, phase: "After", caption: "Chalkboard accent wall — fresh, smooth, deep black" },
+      { type: "image", src: accentKidsRoomAfter, phase: "After", caption: "Full room view — accent wall anchors the whole space" },
+      { type: "image", src: bedroomAfter, phase: "After", caption: "Coffered ceiling + painted walls — finished and clean" },
     ],
   },
   {
     id: "deck-staining",
     title: "Deck Staining & Restoration",
-    category: "Deck & Porch",
-    description: "Weathered, graying deck brought back to life. Cleaned, prepped, stained, and sealed.",
-    photos: [
-      { src: deckBefore, phase: "Before", caption: "Gray, weathered boards — cracking and worn through" },
-      { src: deckFence, phase: "Before", caption: "Fence boards in rough shape — splitting, faded" },
-      { src: deckStained, phase: "After", caption: "Stained and sealed — rich color, fully protected" },
+    services: ["Wood Staining & Finishing"],
+    description:
+      "Grayed-out, weathered deck boards cleaned, prepped, and stained. Fence structure included — brought back to life.",
+    media: [
+      { type: "image", src: deckBefore, phase: "Before", caption: "Gray, splitting boards — years of weather damage" },
+      { type: "video", src: videoDeck, phase: "In Progress", caption: "Deck restoration in progress — cleaning and staining" },
+      { type: "image", src: deckAfter, phase: "After", caption: "Rich brown stain applied — sealed and protected" },
+    ],
+  },
+  {
+    id: "door-entryway",
+    title: "Front Door & Entryway Transformation",
+    services: ["Interior Painting", "Exterior Painting"],
+    description:
+      "Exterior door stripped and repainted. Interior entryway walls and trim fully refreshed. Same job, inside and out.",
+    media: [
+      { type: "image", src: doorExteriorBefore, phase: "Before", caption: "Front door — old wood, faded and worn" },
+      { type: "image", src: doorEntryBefore, phase: "Before", caption: "Interior entryway — dark, dingy, outdated trim" },
+      { type: "image", src: doorInProgress, phase: "In Progress", caption: "Door prepped — patched and primed before topcoat" },
+      { type: "image", src: doorAfter, phase: "After", caption: "Entryway repainted — clean and refreshed" },
+      { type: "image", src: doorAfter2, phase: "After", caption: "Door painted charcoal — bold, clean result" },
+    ],
+  },
+  {
+    id: "exterior-siding",
+    title: "Full Exterior Siding Repaint",
+    services: ["Exterior Painting"],
+    description:
+      "Multi-story house repainted exterior — full coverage on siding, trim, and fascia. Crew work, done right.",
+    media: [
+      { type: "image", src: sidingInProgress, phase: "In Progress", caption: "Crew painting the siding — scaffolding, full coverage" },
+      { type: "image", src: sidingAfter, phase: "After", caption: "Multi-story siding complete — sharp contrast, clean lines" },
+    ],
+  },
+  {
+    id: "bathroom",
+    title: "Bathroom Repaint",
+    services: ["Interior Painting"],
+    description:
+      "Small bathroom, big difference. Fresh color throughout — walls, trim, and ceiling.",
+    media: [
+      { type: "image", src: bathroomAfter, phase: "After", caption: "Bathroom refreshed — cool gray tone, clean finish" },
     ],
   },
 ];
 
-const categories = ["All", "Exterior", "Interior", "Accent Walls", "Deck & Porch"];
+const ALL_SERVICES = [
+  "All",
+  "Interior Painting",
+  "Exterior Painting",
+  "Accent Walls",
+  "Wood Staining & Finishing",
+  "Drywall & Surface Repair",
+];
 
 interface GalleryPageProps {
   onEstimateClick: (hookText?: string) => void;
 }
 
 export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const [activeService, setActiveService] = useState("All");
+  const [lightbox, setLightbox] = useState<string | null>(null);
 
   const filtered =
-    activeCategory === "All"
+    activeService === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) => p.services.includes(activeService));
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero banner */}
+      {/* Hero */}
       <div className="bg-[#111827] py-12 px-4 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
-          Our Work Speaks for Itself
+          Real Jobs. Full Story.
         </h1>
-        <p className="text-gray-300 text-lg max-w-xl mx-auto">
-          Real jobs. Real results. See the full transformation — before, during, and after.
+        <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          Every project below is documented start to finish — before, in progress, and after. This is how we work.
         </p>
       </div>
 
-      {/* Filter tabs */}
+      {/* Service filter */}
       <div className="sticky top-[calc(33px+72px)] z-30 bg-white border-b border-[#e5e7eb] shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
-            {categories.map((cat) => (
+            {ALL_SERVICES.map((s) => (
               <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
+                key={s}
+                onClick={() => setActiveService(s)}
                 className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition-colors border ${
-                  activeCategory === cat
+                  activeService === s
                     ? "bg-[#111827] text-white border-[#111827]"
                     : "bg-white text-[#3a3a3a] border-[#e5e7eb] hover:border-[#111827] hover:text-[#111827]"
                 }`}
               >
-                {cat}
-                {cat !== "All" && (
-                  <span className="ml-1.5 text-xs opacity-60">
-                    ({projects.filter((p) => p.category === cat).length})
-                  </span>
-                )}
+                {s}
               </button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Projects */}
-      <div className="container mx-auto px-4 py-10 space-y-14">
+      {/* Project cards */}
+      <div className="container mx-auto px-4 py-10 space-y-16">
         {filtered.map((project) => (
           <div key={project.id} className="border border-[#e5e7eb] rounded-2xl overflow-hidden shadow-sm">
+
             {/* Project header */}
-            <div className="bg-[#f8f8f8] border-b border-[#e5e7eb] px-6 py-4">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wide text-[#dc2626] mb-1 block">
-                    {project.category}
+            <div className="bg-[#f8f8f8] border-b border-[#e5e7eb] px-6 py-5">
+              <div className="flex flex-wrap gap-2 mb-2">
+                {project.services.map((s) => (
+                  <span
+                    key={s}
+                    className="text-xs font-bold uppercase tracking-wide text-[#dc2626] border border-[#dc2626]/30 bg-[#dc2626]/5 px-2 py-0.5 rounded"
+                  >
+                    {s}
                   </span>
-                  <h2 className="text-xl font-bold text-[#111827]">{project.title}</h2>
-                  <p className="text-[#5a5a5a] text-sm mt-1">{project.description}</p>
-                </div>
-                {/* Phase legend */}
-                <div className="hidden sm:flex flex-col gap-1 shrink-0 text-xs">
-                  {(["Before", "In Progress", "After"] as Phase[]).map((phase) => (
-                    <span key={phase} className={`px-2 py-0.5 rounded font-bold ${PHASE_STYLES[phase]}`}>
-                      {phase}
-                    </span>
-                  ))}
-                </div>
+                ))}
+              </div>
+              <h2 className="text-xl font-bold text-[#111827] mb-1">{project.title}</h2>
+              <p className="text-[#5a5a5a] text-sm">{project.description}</p>
+
+              {/* Phase legend */}
+              <div className="flex gap-3 mt-3">
+                {(["Before", "In Progress", "After"] as Phase[]).map((p) => (
+                  <span key={p} className={`text-xs font-bold px-2 py-0.5 rounded ${PHASE_BADGE[p]}`}>
+                    {p}
+                  </span>
+                ))}
               </div>
             </div>
 
-            {/* Photo strip */}
-            <div className={`grid gap-0 ${
-              project.photos.length === 1 ? "grid-cols-1" :
-              project.photos.length === 2 ? "grid-cols-2" :
-              project.photos.length === 3 ? "grid-cols-3" :
-              "grid-cols-2 sm:grid-cols-4"
-            }`}>
-              {project.photos.map((photo, i) => (
-                <div
-                  key={i}
-                  className="relative group cursor-pointer overflow-hidden aspect-square"
-                  onClick={() => setLightboxSrc(photo.src)}
-                >
-                  <img
-                    src={photo.src}
-                    alt={photo.caption}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+            {/* Media grid */}
+            <div className={`grid grid-cols-2 ${project.media.length >= 4 ? "md:grid-cols-4" : project.media.length === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} gap-0`}>
+              {project.media.map((item, i) => (
+                <div key={i} className="relative group overflow-hidden aspect-square bg-black">
+
+                  {item.type === "video" ? (
+                    <>
+                      <video
+                        src={item.src}
+                        className="w-full h-full object-cover opacity-90"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                      />
+                      {/* Play icon overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <div className="bg-black/40 rounded-full p-3">
+                          <Play className="size-6 text-white fill-white" />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <img
+                      src={item.src}
+                      alt={item.caption}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 cursor-pointer"
+                      loading="lazy"
+                      onClick={() => setLightbox(item.src)}
+                    />
+                  )}
+
                   {/* Phase badge — always visible */}
-                  <div className="absolute top-2 left-2">
-                    <span className={`text-xs font-bold px-2 py-1 rounded shadow ${PHASE_STYLES[photo.phase]}`}>
-                      {photo.phase}
+                  <div className="absolute top-2 left-2 z-10">
+                    <span className={`text-xs font-bold px-2 py-1 rounded shadow-sm ${PHASE_BADGE[item.phase]}`}>
+                      {item.phase}
                     </span>
                   </div>
+
                   {/* Caption on hover */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <p className="text-white text-xs leading-snug">{photo.caption}</p>
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300 z-10">
+                    <p className="text-white text-xs leading-snug">{item.caption}</p>
                   </div>
                 </div>
               ))}
@@ -259,12 +294,12 @@ export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
       </div>
 
       {/* CTA */}
-      <div className="bg-[#f8f8f8] border-t border-[#e5e7eb] py-14 px-4 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mb-3">
+      <div className="bg-[#111827] py-14 px-4 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
           Want Results Like These?
         </h2>
-        <p className="text-[#5a5a5a] max-w-md mx-auto mb-6">
-          Malik offers free estimates on all jobs across Rochester and Western New York.
+        <p className="text-gray-300 max-w-md mx-auto mb-6">
+          Free estimates on all jobs. Interior, exterior, drywall, staining — Malik handles it all across Rochester and Western New York.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           <button
@@ -275,7 +310,7 @@ export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
           </button>
           <a
             href="tel:7168150333"
-            className="flex items-center gap-2 border border-[#111827] text-[#111827] font-semibold px-7 py-3 rounded-md text-base min-h-[48px] hover:bg-[#111827] hover:text-white transition-colors"
+            className="flex items-center gap-2 border border-white/40 text-white font-semibold px-7 py-3 rounded-md text-base min-h-[48px] hover:bg-white/10 transition-colors"
           >
             <Phone className="size-4" />
             716-815-0333
@@ -284,20 +319,20 @@ export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
       </div>
 
       {/* Lightbox */}
-      {lightboxSrc && (
+      {lightbox && (
         <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-          onClick={() => setLightboxSrc(null)}
+          onClick={() => setLightbox(null)}
         >
           <button
             className="absolute top-4 right-4 text-white text-3xl font-bold leading-none hover:text-gray-300"
-            onClick={() => setLightboxSrc(null)}
+            onClick={() => setLightbox(null)}
           >
             ×
           </button>
           <img
-            src={lightboxSrc}
-            alt="Gallery photo"
+            src={lightbox}
+            alt="Full view"
             className="max-w-full max-h-[90vh] object-contain rounded-lg"
             onClick={(e) => e.stopPropagation()}
           />
