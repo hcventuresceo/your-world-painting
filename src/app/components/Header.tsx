@@ -24,7 +24,7 @@ export function Header({ onEstimateClick, currentPage = "home", onNavigate }: He
             onClick={() => handleNavClick("home")}
             className="flex items-center gap-3 hover:opacity-90 transition-opacity"
           >
-            <img src={logoImg} alt="Your World Painting" className="h-16 w-auto" />
+            <img src={logoImg} alt="Your World Painting" className="h-24 w-auto" />
           </button>
 
           {/* Navigation Menu */}

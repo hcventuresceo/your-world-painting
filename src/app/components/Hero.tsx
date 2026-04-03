@@ -1,11 +1,12 @@
-import { Phone, Shield, Star, MapPin } from "lucide-react";
+import { Phone, Shield, Star, MapPin, Images } from "lucide-react";
 import heroImage from "@/assets/hero-crew.jpg";
 
 interface HeroProps {
   onEstimateClick: (hookText?: string) => void;
+  onNavigate: (page: string) => void;
 }
 
-export function Hero({ onEstimateClick }: HeroProps) {
+export function Hero({ onEstimateClick, onNavigate }: HeroProps) {
   return (
     <section className="relative min-h-[75vh] md:min-h-[90vh] flex items-start">
       <div className="absolute inset-0 z-0">
@@ -20,7 +21,7 @@ export function Hero({ onEstimateClick }: HeroProps) {
       <div className="relative z-10 container mx-auto px-4 pt-16 pb-16 md:pt-20 text-white">
         <div className="max-w-2xl">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-            Rochester's Trusted Painting Professionals
+            Your World Painting
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-200 mb-6">
@@ -58,6 +59,14 @@ export function Hero({ onEstimateClick }: HeroProps) {
               Get Free Estimate
             </button>
           </div>
+
+          <button
+            onClick={() => onNavigate("gallery")}
+            className="flex items-center gap-2 mt-2 mb-2 px-6 py-3 bg-transparent border border-white/60 hover:border-white hover:bg-white/10 text-white rounded-md transition-colors text-base font-medium"
+          >
+            <Images className="size-5" />
+            See Our Work — View the Full Gallery
+          </button>
 
           <p className="text-sm text-gray-300">
             No obligation · Fast response · Serving Rochester &amp; Monroe County

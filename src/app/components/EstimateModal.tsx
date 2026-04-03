@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { X, Smartphone, MessageCircle, Loader2 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { X, Smartphone, MessageCircle, Loader2, Paperclip } from "lucide-react";
 
 interface EstimateModalProps {
   open: boolean;
@@ -36,9 +36,12 @@ export function EstimateModal({
   const [service, setService] = useState(preSelectedService ?? "");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
   const [budget, setBudget] = useState("");
   const [otherService, setOtherService] = useState("");
+  const [photos, setPhotos] = useState<FileList | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   // Sync service when preSelectedService changes
   useEffect(() => {
@@ -56,9 +59,12 @@ export function EstimateModal({
     setIsSubmitting(false);
     setName("");
     setPhone("");
+    setEmail("");
     setDescription("");
     setBudget("");
     setOtherService("");
+    setPhotos(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
     setService(preSelectedService ?? "");
     onOpenChange(false);
   };
@@ -67,18 +73,27 @@ export function EstimateModal({
     e.preventDefault();
     setIsSubmitting(true);
     try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("phone", phone);
+      if (email) {
+        formData.append("customer_email", email);
+        formData.append("_replyto", email);
+      }
+      formData.append("service", service === "other" && otherService ? otherService : (SERVICE_LABELS[service] || service));
+      formData.append("description", description || "Not provided");
+      formData.append("budget", budget || "Not provided");
+      formData.append("_subject", `New Estimate Request – ${name}`);
+      formData.append("_template", "table");
+      if (photos) {
+        for (let i = 0; i < photos.length; i++) {
+          formData.append("photos", photos[i]);
+        }
+      }
       await fetch("https://formsubmit.co/ajax/yourworldpainting@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          name,
-          phone,
-          service: service === "other" && otherService ? otherService : (SERVICE_LABELS[service] || service),
-          description: description || "Not provided",
-          budget: budget || "Not provided",
-          _subject: `New Estimate Request – ${name}`,
-          _template: "table",
-        }),
+        headers: { Accept: "application/json" },
+        body: formData,
       });
     } catch (_) {
       // show success anyway
@@ -190,6 +205,17 @@ export function EstimateModal({
                 />
               </div>
 
+              <div style={{ marginBottom: "16px" }}>
+                <label style={{ display: "block", fontSize: "14px", color: "#5a5a5a", marginBottom: "6px", fontWeight: 500 }}>Email Address</label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  style={{ width: "100%", height: "48px", padding: "0 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "16px", boxSizing: "border-box" }}
+                />
+              </div>
+
               <div style={{ marginBottom: "20px" }}>
                 <label style={{ display: "block", fontSize: "14px", color: "#5a5a5a", marginBottom: "6px", fontWeight: 500 }}>Service Type *</label>
                 <select
@@ -255,9 +281,30 @@ export function EstimateModal({
                 </select>
               </div>
 
-              <p style={{ fontSize: "12px", color: "#9ca3af", marginBottom: "16px" }}>
-                Have photos? Text them to <a href="sms:7168150333" style={{ color: "#111827" }}>(716) 815-0333</a> after submitting.
-              </p>
+              <div style={{ marginBottom: "20px" }}>
+                <label style={{ display: "block", fontSize: "14px", color: "#5a5a5a", marginBottom: "6px", fontWeight: 500 }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <Paperclip size={14} />
+                    Add Photos <span style={{ fontWeight: 400, color: "#9ca3af" }}>(optional)</span>
+                  </span>
+                </label>
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  multiple
+                  onChange={e => setPhotos(e.target.files)}
+                  style={{ width: "100%", padding: "10px 12px", border: "1px solid #e5e7eb", borderRadius: "6px", fontSize: "14px", boxSizing: "border-box", backgroundColor: "#f9fafb", cursor: "pointer" }}
+                />
+                {photos && photos.length > 0 && (
+                  <p style={{ fontSize: "12px", color: "#5a5a5a", marginTop: "6px" }}>
+                    {photos.length} photo{photos.length > 1 ? "s" : ""} selected — will be sent to Malik's email
+                  </p>
+                )}
+                <p style={{ fontSize: "12px", color: "#9ca3af", marginTop: "6px" }}>
+                  You can text photos to <a href="sms:7168150333" style={{ color: "#111827" }}>(716) 815-0333</a> directly or email them to <a href="mailto:yourworldpainting@gmail.com" style={{ color: "#111827" }}>yourworldpainting@gmail.com</a>
+                </p>
+              </div>
 
               <button
                 type="submit"
