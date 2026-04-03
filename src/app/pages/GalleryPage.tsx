@@ -11,9 +11,8 @@ import videoStairwell from "@/assets/gallery/videos/video-stairwell.mp4";
 import bedroomBefore from "@/assets/gallery/gallery-bedroom-before.jpg";
 import accentWallBefore from "@/assets/gallery/gallery-accent-wall-before.jpg";
 import accentInProgress from "@/assets/gallery/gallery-accent-room-in-progress.jpg";
-import accentChalkboardAfter from "@/assets/gallery/gallery-accent-chalkboard-wall.jpg";
-import accentKidsRoomAfter from "@/assets/gallery/gallery-accent-kids-room.jpg";
 import bedroomAfter from "@/assets/gallery/gallery-interior-bedroom-after.jpg";
+import bedroomWallsAfter from "@/assets/gallery/gallery-bedroom-walls-after.jpg";
 import videoBedroom from "@/assets/gallery/videos/video-bedroom.mp4";
 
 // ── Deck Staining ────────────────────────────────────────────────────────────
@@ -104,9 +103,8 @@ const projects: Project[] = [
       { type: "image", src: accentWallBefore, phase: "Before", caption: "Old chalkboard wall — years of chalk buildup and scuffs" },
       { type: "image", src: accentInProgress, phase: "In Progress", caption: "Room masked and prepped — walls, ceiling, and accent all being worked" },
       { type: "video", src: videoBedroom, phase: "In Progress", caption: "Mid-job footage — transformation underway" },
-      { type: "image", src: accentChalkboardAfter, phase: "After", caption: "Chalkboard accent wall — fresh, smooth, deep black" },
-      { type: "image", src: accentKidsRoomAfter, phase: "After", caption: "Full room view — accent wall anchors the whole space" },
-      { type: "image", src: bedroomAfter, phase: "After", caption: "Coffered ceiling + painted walls — finished and clean" },
+      { type: "image", src: bedroomAfter, phase: "After", caption: "Coffered ceiling repainted — clean, sharp finish" },
+      { type: "image", src: bedroomWallsAfter, phase: "After", caption: "Freshly painted bedroom walls — smooth, even coat throughout" },
     ],
   },
   {
