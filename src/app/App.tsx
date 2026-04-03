@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { WhyChoose } from "./components/WhyChoose";
-import { ServiceRouting } from "./components/ServiceRouting";
 import { BeforeAfterGallery } from "./components/BeforeAfterGallery";
 import { Testimonials } from "./components/Testimonials";
 import { TestimonialsSection } from "./components/TestimonialsSection";
@@ -13,8 +12,7 @@ import { EstimateModal } from "./components/EstimateModal";
 import { LeadCaptureSlideIn } from "./components/LeadCaptureSlideIn";
 import { AnnouncementBar } from "./components/AnnouncementBar";
 import { StickyMobileBar } from "./components/StickyMobileBar";
-import { InteriorPage } from "./pages/InteriorPage";
-import { ExteriorPage } from "./pages/ExteriorPage";
+import { GalleryPage } from "./pages/GalleryPage";
 import { AboutPage } from "./pages/AboutPage";
 import { FlyrPage } from "./pages/FlyrPage";
 import { QuotePage } from "./pages/QuotePage";
@@ -42,10 +40,8 @@ export default function App() {
   const renderPage = () => {
     console.log('Current page:', currentPage);
     switch (currentPage) {
-      case "interior":
-        return <InteriorPage onEstimateClick={openEstimateModal} />;
-      case "exterior":
-        return <ExteriorPage onEstimateClick={openEstimateModal} />;
+      case "gallery":
+        return <GalleryPage onEstimateClick={openEstimateModal} />;
       case "about":
         return <AboutPage onEstimateClick={openEstimateModal} />;
       case "flyr":
@@ -58,7 +54,6 @@ export default function App() {
             <Hero onEstimateClick={openEstimateModal} />
             <Testimonials />
             <WhyChoose />
-            <ServiceRouting onNavigate={handleNavigate} onEstimateClick={openEstimateModal} />
             <HowItWorks />
             <BeforeAfterGallery />
             <TestimonialsSection />

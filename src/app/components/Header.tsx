@@ -37,20 +37,12 @@ export function Header({ onEstimateClick, currentPage = "home", onNavigate }: He
               <span>716-815-0333</span>
             </a>
             <button
-              onClick={() => handleNavClick("interior")}
+              onClick={() => handleNavClick("gallery")}
               className={`text-[#3a3a3a] hover:text-[#111827] transition-colors font-medium ${
-                currentPage === "interior" ? "text-[#111827]" : ""
+                currentPage === "gallery" ? "text-[#111827]" : ""
               }`}
             >
-              Interior
-            </button>
-            <button
-              onClick={() => handleNavClick("exterior")}
-              className={`text-[#3a3a3a] hover:text-[#111827] transition-colors font-medium ${
-                currentPage === "exterior" ? "text-[#111827]" : ""
-              }`}
-            >
-              Exterior
+              Gallery
             </button>
             <button
               onClick={() => handleNavClick("about")}
