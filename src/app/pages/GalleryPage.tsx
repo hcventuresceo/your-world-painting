@@ -11,6 +11,7 @@ import interiorCeiling from "@/assets/gallery/gallery-interior-ceiling-painting.
 import interiorRoom from "@/assets/gallery/gallery-interior-room-after.jpg";
 
 // Accent Walls
+import accentWallBefore from "@/assets/gallery/gallery-accent-wall-before.jpg";
 import accentChalkboard from "@/assets/gallery/gallery-accent-chalkboard-wall.jpg";
 import accentKidsRoom from "@/assets/gallery/gallery-accent-kids-room.jpg";
 import accentInProgress from "@/assets/gallery/gallery-accent-room-in-progress.jpg";
@@ -19,161 +20,131 @@ import accentInProgress from "@/assets/gallery/gallery-accent-room-in-progress.j
 import exteriorHouseSiding from "@/assets/gallery/gallery-exterior-house-siding.jpg";
 import exteriorInProgress from "@/assets/gallery/gallery-exterior-in-progress.jpg";
 import exteriorSidingAfter from "@/assets/gallery/gallery-exterior-siding-after.jpg";
+import exteriorDoorBefore from "@/assets/gallery/gallery-exterior-door-before.jpg";
 import exteriorBlackDoor from "@/assets/gallery/gallery-exterior-black-door.jpg";
 import exteriorBlueDoors from "@/assets/gallery/gallery-exterior-blue-doors.jpg";
+import exteriorArchBefore from "@/assets/gallery/gallery-exterior-arch-before.jpg";
 import exteriorArchAfter from "@/assets/gallery/gallery-exterior-arch-entrance-after.jpg";
 import exteriorArchPorch from "@/assets/gallery/gallery-exterior-arch-porch.jpg";
-import exteriorArch from "@/assets/gallery/gallery-exterior-arch-entrance.jpg";
 
 // Deck & Porch
-import deckStained from "@/assets/gallery/gallery-deck-stained-after.jpg";
 import deckBefore from "@/assets/gallery/gallery-deck-before.jpg";
+import deckStained from "@/assets/gallery/gallery-deck-stained-after.jpg";
 import deckFence from "@/assets/gallery/gallery-deck-fence-before.jpg";
 
-interface GalleryItem {
+type Phase = "Before" | "In Progress" | "After";
+
+interface ProjectPhoto {
   src: string;
-  category: string;
-  label: string;
-  description: string;
+  phase: Phase;
+  caption: string;
 }
 
-const allPhotos: GalleryItem[] = [
-  // Interior
-  {
-    src: interiorMalik,
-    category: "Interior",
-    label: "Interior Painting",
-    description: "Malik on the job — interior walls, clean lines",
-  },
-  {
-    src: interiorHallway,
-    category: "Interior",
-    label: "Interior Painting",
-    description: "Fresh hallway repaint — bright white throughout",
-  },
-  {
-    src: interiorStairwell,
-    category: "Interior",
-    label: "Interior Painting",
-    description: "Stairwell walls repainted — crisp and clean",
-  },
-  {
-    src: interiorBathroom,
-    category: "Interior",
-    label: "Interior Painting",
-    description: "Bathroom walls refreshed in a cool gray tone",
-  },
-  {
-    src: interiorBedroom,
-    category: "Interior",
-    label: "Interior Painting",
-    description: "Bedroom walls and coffered ceiling — finished to perfection",
-  },
-  {
-    src: interiorCeiling,
-    category: "Interior",
-    label: "Interior Painting",
-    description: "Ceiling painting — we cover every inch",
-  },
-  {
-    src: interiorRoom,
-    category: "Interior",
-    label: "Interior Painting",
-    description: "Full room repaint — walls, trim, and ceiling",
-  },
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  description: string;
+  photos: ProjectPhoto[];
+}
 
-  // Accent Walls
-  {
-    src: accentChalkboard,
-    category: "Accent Walls",
-    label: "Accent Wall",
-    description: "Custom chalkboard accent wall — functional and stylish",
-  },
-  {
-    src: accentKidsRoom,
-    category: "Accent Walls",
-    label: "Accent Wall",
-    description: "Kids room chalkboard wall — a space they'll love",
-  },
-  {
-    src: accentInProgress,
-    category: "Accent Walls",
-    label: "Accent Wall",
-    description: "Accent wall transformation in progress — mid-job",
-  },
+const PHASE_STYLES: Record<Phase, string> = {
+  Before: "bg-gray-600 text-white",
+  "In Progress": "bg-yellow-500 text-white",
+  After: "bg-[#16a34a] text-white",
+};
 
-  // Exterior
+const projects: Project[] = [
   {
-    src: exteriorHouseSiding,
+    id: "door-refinish",
+    title: "Front Door Refinish",
     category: "Exterior",
-    label: "Exterior Painting",
-    description: "Full exterior repaint — fresh siding, clean finish",
+    description: "Weathered wood door stripped and repainted gloss black. Total curb appeal transformation.",
+    photos: [
+      { src: exteriorDoorBefore, phase: "Before", caption: "Peeling, faded wood — worn down from the elements" },
+      { src: exteriorBlackDoor, phase: "After", caption: "Painted gloss black — bold, clean, brand new look" },
+    ],
   },
   {
-    src: exteriorInProgress,
+    id: "arch-porch",
+    title: "Exterior Porch & Arch Repaint",
     category: "Exterior",
-    label: "Exterior Painting",
-    description: "Exterior job in progress — walls prepped and coated",
+    description: "Full porch repaint on a curved-arch entrance. Cleaned up years of wear and weather damage.",
+    photos: [
+      { src: exteriorArchBefore, phase: "Before", caption: "Weathered porch with exposed wood and patching needed" },
+      { src: exteriorArchAfter, phase: "After", caption: "Fresh repaint — crisp white trim and arch detail" },
+      { src: exteriorArchPorch, phase: "After", caption: "Curved porch ceiling and walls — fully restored" },
+    ],
   },
   {
-    src: exteriorSidingAfter,
+    id: "exterior-house",
+    title: "Full Exterior House Painting",
     category: "Exterior",
-    label: "Exterior Painting",
-    description: "Multi-story exterior — two-tone siding completed",
+    description: "Multi-story exterior painted top to bottom. Siding, trim, and detail work all included.",
+    photos: [
+      { src: exteriorHouseSiding, phase: "Before", caption: "Faded siding — dull color, showing age" },
+      { src: exteriorInProgress, phase: "In Progress", caption: "Malik's crew working the walls — prepped and rolling" },
+      { src: exteriorSidingAfter, phase: "After", caption: "Two-tone siding complete — sharp contrast, clean lines" },
+    ],
   },
   {
-    src: exteriorBlackDoor,
+    id: "blue-doors",
+    title: "Garage Door Color Change",
     category: "Exterior",
-    label: "Exterior Painting",
-    description: "Black door refinish — bold, glossy, curb-appeal ready",
+    description: "Client wanted a bold color upgrade. Went from dull to standout blue — exactly what they asked for.",
+    photos: [
+      { src: exteriorBlueDoors, phase: "After", caption: "Bright blue doors — exactly what the client wanted" },
+    ],
   },
   {
-    src: exteriorBlueDoors,
-    category: "Exterior",
-    label: "Exterior Painting",
-    description: "Garage doors painted blue — dramatic before/after",
+    id: "chalkboard-wall",
+    title: "Chalkboard Accent Wall — Kids Room",
+    category: "Accent Walls",
+    description: "Converted a plain wall into a full chalkboard feature. Kid-friendly, fully functional, and sharp.",
+    photos: [
+      { src: accentWallBefore, phase: "Before", caption: "Old chalkboard wall — chalked up, worn, needed a reset" },
+      { src: accentInProgress, phase: "In Progress", caption: "Room prepped and taped — transformation underway" },
+      { src: accentChalkboard, phase: "After", caption: "Fresh chalkboard wall — smooth, deep black, ready to use" },
+      { src: accentKidsRoom, phase: "After", caption: "Full room view — accent wall anchors the whole space" },
+    ],
   },
   {
-    src: exteriorArchAfter,
-    category: "Exterior",
-    label: "Exterior Painting",
-    description: "Curved porch entrance — fully repainted after",
+    id: "interior-stairwell",
+    title: "Interior Hallway & Stairwell",
+    category: "Interior",
+    description: "Full repaint of a tight stairwell and hallway. Bright white walls, clean trim — makes the space feel twice as big.",
+    photos: [
+      { src: interiorMalik, phase: "In Progress", caption: "Malik rolling the ceiling — full coverage, no drips" },
+      { src: interiorHallway, phase: "After", caption: "Hallway after — bright white from floor to ceiling" },
+      { src: interiorStairwell, phase: "After", caption: "Stairwell fully repainted — clean lines down every step" },
+    ],
   },
   {
-    src: exteriorArchPorch,
-    category: "Exterior",
-    label: "Exterior Painting",
-    description: "Arch porch repaint — clean white detail work",
+    id: "interior-rooms",
+    title: "Interior Room Repaints",
+    category: "Interior",
+    description: "Bedroom, bathroom, and living spaces refreshed. Wall color changes, ceiling work, and trim throughout.",
+    photos: [
+      { src: interiorCeiling, phase: "In Progress", caption: "Ceiling coat being applied — even coverage throughout" },
+      { src: interiorRoom, phase: "After", caption: "Room after — fresh walls and crisp white ceiling" },
+      { src: interiorBedroom, phase: "After", caption: "Bedroom complete — coffered ceiling and painted walls" },
+      { src: interiorBathroom, phase: "After", caption: "Bathroom refreshed in a cool gray tone" },
+    ],
   },
   {
-    src: exteriorArch,
-    category: "Exterior",
-    label: "Exterior Painting",
-    description: "Porch exterior — trim and siding refinished",
-  },
-
-  // Deck & Porch
-  {
-    src: deckStained,
+    id: "deck-staining",
+    title: "Deck Staining & Restoration",
     category: "Deck & Porch",
-    label: "Deck Staining",
-    description: "Deck stained and sealed — protected for the season",
-  },
-  {
-    src: deckBefore,
-    category: "Deck & Porch",
-    label: "Deck Staining",
-    description: "Weathered deck before treatment — worn and gray",
-  },
-  {
-    src: deckFence,
-    category: "Deck & Porch",
-    label: "Deck Staining",
-    description: "Fence and deck boards — restored from rough condition",
+    description: "Weathered, graying deck brought back to life. Cleaned, prepped, stained, and sealed.",
+    photos: [
+      { src: deckBefore, phase: "Before", caption: "Gray, weathered boards — cracking and worn through" },
+      { src: deckFence, phase: "Before", caption: "Fence boards in rough shape — splitting, faded" },
+      { src: deckStained, phase: "After", caption: "Stained and sealed — rich color, fully protected" },
+    ],
   },
 ];
 
-const categories = ["All", "Interior", "Accent Walls", "Exterior", "Deck & Porch"];
+const categories = ["All", "Exterior", "Interior", "Accent Walls", "Deck & Porch"];
 
 interface GalleryPageProps {
   onEstimateClick: (hookText?: string) => void;
@@ -185,8 +156,8 @@ export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
 
   const filtered =
     activeCategory === "All"
-      ? allPhotos
-      : allPhotos.filter((p) => p.category === activeCategory);
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
 
   return (
     <div className="min-h-screen bg-white">
@@ -196,8 +167,7 @@ export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
           Our Work Speaks for Itself
         </h1>
         <p className="text-gray-300 text-lg max-w-xl mx-auto">
-          Real jobs. Real results. Browse our portfolio of completed projects across
-          Buffalo and Western New York.
+          Real jobs. Real results. See the full transformation — before, during, and after.
         </p>
       </div>
 
@@ -218,7 +188,7 @@ export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
                 {cat}
                 {cat !== "All" && (
                   <span className="ml-1.5 text-xs opacity-60">
-                    ({allPhotos.filter((p) => p.category === cat).length})
+                    ({projects.filter((p) => p.category === cat).length})
                   </span>
                 )}
               </button>
@@ -227,48 +197,74 @@ export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="container mx-auto px-4 py-10">
-        <p className="text-[#5a5a5a] text-sm mb-6">
-          Showing <span className="font-semibold text-[#111827]">{filtered.length}</span> photos
-          {activeCategory !== "All" && (
-            <span> in <span className="font-semibold text-[#111827]">{activeCategory}</span></span>
-          )}
-        </p>
-
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
-          {filtered.map((photo, i) => (
-            <div
-              key={i}
-              className="break-inside-avoid group relative cursor-pointer rounded-xl overflow-hidden shadow-sm border border-[#e5e7eb] hover:shadow-md transition-shadow"
-              onClick={() => setLightboxSrc(photo.src)}
-            >
-              <img
-                src={photo.src}
-                alt={photo.description}
-                className="w-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                loading="lazy"
-              />
-              {/* Label overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <span className="inline-block bg-[#dc2626] text-white text-xs font-bold px-2 py-0.5 rounded mb-1">
-                  {photo.label}
-                </span>
-                <p className="text-white text-sm leading-snug">{photo.description}</p>
+      {/* Projects */}
+      <div className="container mx-auto px-4 py-10 space-y-14">
+        {filtered.map((project) => (
+          <div key={project.id} className="border border-[#e5e7eb] rounded-2xl overflow-hidden shadow-sm">
+            {/* Project header */}
+            <div className="bg-[#f8f8f8] border-b border-[#e5e7eb] px-6 py-4">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <span className="text-xs font-bold uppercase tracking-wide text-[#dc2626] mb-1 block">
+                    {project.category}
+                  </span>
+                  <h2 className="text-xl font-bold text-[#111827]">{project.title}</h2>
+                  <p className="text-[#5a5a5a] text-sm mt-1">{project.description}</p>
+                </div>
+                {/* Phase legend */}
+                <div className="hidden sm:flex flex-col gap-1 shrink-0 text-xs">
+                  {(["Before", "In Progress", "After"] as Phase[]).map((phase) => (
+                    <span key={phase} className={`px-2 py-0.5 rounded font-bold ${PHASE_STYLES[phase]}`}>
+                      {phase}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          ))}
-        </div>
+
+            {/* Photo strip */}
+            <div className={`grid gap-0 ${
+              project.photos.length === 1 ? "grid-cols-1" :
+              project.photos.length === 2 ? "grid-cols-2" :
+              project.photos.length === 3 ? "grid-cols-3" :
+              "grid-cols-2 sm:grid-cols-4"
+            }`}>
+              {project.photos.map((photo, i) => (
+                <div
+                  key={i}
+                  className="relative group cursor-pointer overflow-hidden aspect-square"
+                  onClick={() => setLightboxSrc(photo.src)}
+                >
+                  <img
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  {/* Phase badge — always visible */}
+                  <div className="absolute top-2 left-2">
+                    <span className={`text-xs font-bold px-2 py-1 rounded shadow ${PHASE_STYLES[photo.phase]}`}>
+                      {photo.phase}
+                    </span>
+                  </div>
+                  {/* Caption on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <p className="text-white text-xs leading-snug">{photo.caption}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
-      {/* CTA section */}
+      {/* CTA */}
       <div className="bg-[#f8f8f8] border-t border-[#e5e7eb] py-14 px-4 text-center">
         <h2 className="text-2xl md:text-3xl font-bold text-[#111827] mb-3">
-          Like What You See?
+          Want Results Like These?
         </h2>
         <p className="text-[#5a5a5a] max-w-md mx-auto mb-6">
-          Let's talk about your project. Malik offers free estimates for all jobs
-          across Buffalo and Western New York.
+          Malik offers free estimates on all jobs across Rochester and Western New York.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
           <button
