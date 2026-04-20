@@ -6,6 +6,7 @@ import { BeforeAfterGallery } from "./components/BeforeAfterGallery";
 import { Testimonials } from "./components/Testimonials";
 import { TestimonialsSection } from "./components/TestimonialsSection";
 import { HowItWorks } from "./components/HowItWorks";
+import { FeaturedProjectsStrip } from "./components/FeaturedProjectsStrip";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { EstimateModal } from "./components/EstimateModal";
@@ -51,11 +52,14 @@ export default function App() {
       default:
         return (
           <>
-            <Hero onEstimateClick={openEstimateModal} />
+            <Hero onEstimateClick={openEstimateModal} onNavigate={handleNavigate} />
             <Testimonials />
             <WhyChoose />
+            <FeaturedProjectsStrip
+              onEstimateClick={openEstimateModal}
+              onNavigate={handleNavigate}
+            />
             <HowItWorks />
-            <BeforeAfterGallery />
             <TestimonialsSection />
             <Contact onEstimateClick={openEstimateModal} />
           </>
