@@ -359,7 +359,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: false,
     fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
-    displayAssets: ["IMG_1741", "IMG_3647", "IMG_3628", "IMG_3629", "IMG_3630"],
+    displayAssets: [],
   },
   {
     id: "job-5",
@@ -369,7 +369,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: false,
     fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
-    displayAssets: ["IMG_1741", "IMG_3647", "IMG_3628", "IMG_3629", "IMG_3630"],
+    displayAssets: [],
   },
   {
     id: "job-6",
@@ -389,7 +389,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Door & Detail Work", "Interior Painting"],
     featured: false,
     fullAssets: ["IMG_2007", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_3677"],
-    displayAssets: ["IMG_3635", "IMG_2007", "IMG_3636", "IMG_3637", "IMG_3677"],
+    displayAssets: [],
   },
   {
     id: "job-8",
