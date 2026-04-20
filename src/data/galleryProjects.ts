@@ -329,7 +329,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting"],
     featured: true,
     fullAssets: ["IMG_9938", "IMG_0827", "IMG_0828", "IMG_0829", "IMG_0830", "IMG_3680", "IMG_3683", "IMG_3684", "IMG_3685"],
-    displayAssets: ["IMG_9938", "IMG_0827", "IMG_0828", "IMG_0829", "IMG_0830"],
+    displayAssets: ["IMG_0828", "IMG_0829", "IMG_0830", "IMG_0827", "IMG_9938"],
   },
   {
     id: "job-2",
@@ -339,7 +339,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting", "Wood Staining & Finishing", "Door & Detail Work"],
     featured: true,
     fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
-    displayAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647"],
+    displayAssets: ["IMG_1741", "IMG_3647", "IMG_3628", "IMG_3629", "IMG_3630"],
   },
   {
     id: "job-3",
@@ -349,7 +349,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: true,
     fullAssets: ["IMG_2007", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_3677"],
-    displayAssets: ["IMG_2007", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_3677"],
+    displayAssets: ["IMG_3635", "IMG_2007", "IMG_3636", "IMG_3637", "IMG_3677"],
   },
   {
     id: "job-4",
@@ -359,7 +359,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: false,
     fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
-    displayAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647"],
+    displayAssets: ["IMG_1741", "IMG_3647", "IMG_3628", "IMG_3629", "IMG_3630"],
   },
   {
     id: "job-5",
@@ -369,7 +369,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: false,
     fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
-    displayAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647"],
+    displayAssets: ["IMG_1741", "IMG_3647", "IMG_3628", "IMG_3629", "IMG_3630"],
   },
   {
     id: "job-6",
@@ -389,7 +389,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Door & Detail Work", "Interior Painting"],
     featured: false,
     fullAssets: ["IMG_2007", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_3677"],
-    displayAssets: ["IMG_2007", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_3677"],
+    displayAssets: ["IMG_3635", "IMG_2007", "IMG_3636", "IMG_3637", "IMG_3677"],
   },
   {
     id: "job-8",
