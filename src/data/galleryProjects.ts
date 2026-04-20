@@ -6,6 +6,7 @@ import wealthyBasementBefore from "@/assets/gallery/gallery-eg-before-hallway.jp
 import wealthyBasementProgress from "@/assets/gallery/gallery-eg-stairwell-in-progress.jpg";
 
 import job1Before9938 from "@/assets/gallery/locked/job1-before-9938.jpg";
+import job1Before9941 from "@/assets/gallery/locked/job1-before-9941.jpg";
 import job1After0827 from "@/assets/gallery/locked/IMG_0827.png";
 import job1After0828 from "@/assets/gallery/locked/IMG_0828.png";
 import job1After0829 from "@/assets/gallery/locked/IMG_0829.png";
@@ -67,6 +68,7 @@ export interface MediaItem {
 
 export type AssetKey =
   | "IMG_9938"
+  | "IMG_9941"
   | "IMG_0827"
   | "IMG_0828"
   | "IMG_0829"
@@ -120,6 +122,11 @@ export const assetLibrary: Record<AssetKey, MediaItem> = {
   IMG_9938: {
     type: "image",
     src: job1Before9938,
+    caption: "Exterior before the repaint and curb-appeal refresh",
+  },
+  IMG_9941: {
+    type: "image",
+    src: job1Before9941,
     caption: "Exterior before the repaint and curb-appeal refresh",
   },
   IMG_0827: {
@@ -329,7 +336,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Exterior Painting"],
     featured: true,
     fullAssets: ["IMG_9938", "IMG_0827", "IMG_0828", "IMG_0829", "IMG_0830", "IMG_3680", "IMG_3683", "IMG_3684", "IMG_3685"],
-    displayAssets: ["IMG_0828", "IMG_0829", "IMG_0830", "IMG_0827", "IMG_9938"],
+    displayAssets: ["IMG_9941", "IMG_0828", "IMG_0829", "IMG_0830", "IMG_0827"],
   },
   {
     id: "job-2",
