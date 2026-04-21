@@ -21,12 +21,16 @@ import job245Support3647 from "@/assets/gallery/locked/job245-support-3647.jpg";
 import job245Backdeck3591 from "@/assets/gallery/locked/job245-backdeck-3591.jpg";
 import job245Backdeck3592 from "@/assets/gallery/locked/job245-backdeck-3592.jpg";
 import job245Backdeck3593 from "@/assets/gallery/locked/job245-backdeck-3593.jpg";
+import job245DoorBefore3603 from "@/assets/gallery/locked/job245-door-before-3603.jpg";
+import job245StairsBefore3627 from "@/assets/gallery/locked/job245-stairs-before-3627.jpg";
+import job245StairsAfter3626 from "@/assets/gallery/locked/job245-stairs-after-3626.jpg";
 
 import job37Before2007 from "@/assets/gallery/locked/IMG_2007.png";
 import job37After3635 from "@/assets/gallery/locked/job37-after-3635.jpg";
 import job37After3636 from "@/assets/gallery/locked/job37-after-3636.jpg";
 import job37After3637 from "@/assets/gallery/locked/job37-after-3637.jpg";
 import job37Support3677 from "@/assets/gallery/locked/job37-support-3677.jpg";
+import job37Before3642 from "@/assets/gallery/locked/job37-before-3642.jpg";
 
 import job10Before9098 from "@/assets/gallery/locked/job10-before-9098.jpg";
 import job10After9137 from "@/assets/gallery/locked/IMG_9137.png";
@@ -83,6 +87,10 @@ export type AssetKey =
   | "IMG_3591"
   | "IMG_3592"
   | "IMG_3593"
+  | "IMG_3603"
+  | "IMG_3626"
+  | "IMG_3627"
+  | "IMG_3642"
   | "IMG_2007"
   | "IMG_3635"
   | "IMG_3636"
@@ -195,6 +203,26 @@ export const assetLibrary: Record<AssetKey, MediaItem> = {
     type: "image",
     src: job245Backdeck3593,
     caption: "Rear deck and siding view after the repaint",
+  },
+  IMG_3603: {
+    type: "image",
+    src: job245DoorBefore3603,
+    caption: "Front door before the repaint",
+  },
+  IMG_3626: {
+    type: "image",
+    src: job245StairsAfter3626,
+    caption: "Stairs after the blue repaint",
+  },
+  IMG_3627: {
+    type: "image",
+    src: job245StairsBefore3627,
+    caption: "Concrete stairs before the repaint",
+  },
+  IMG_3642: {
+    type: "image",
+    src: job37Before3642,
+    caption: "Property exterior before the repaint",
   },
   IMG_2007: {
     type: "image",
@@ -352,8 +380,8 @@ export const galleryProjects: GalleryProject[] = [
       "Deck boards, trim, and the front entry were refreshed for a cleaner, sharper exterior finish.",
     services: ["Exterior Painting", "Wood Staining & Finishing", "Door & Detail Work"],
     featured: true,
-    fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
-    displayAssets: ["IMG_1741", "IMG_3647", "IMG_3628", "IMG_3629", "IMG_3630"],
+    fullAssets: ["IMG_3603", "IMG_3647", "IMG_3627", "IMG_3626", "IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3591", "IMG_3592", "IMG_3593"],
+    displayAssets: ["IMG_3647", "IMG_3626", "IMG_3603", "IMG_3627"],
   },
   {
     id: "job-3",
@@ -362,8 +390,8 @@ export const galleryProjects: GalleryProject[] = [
       "Brick porch and entry surfaces were refreshed for a cleaner, brighter exterior finish.",
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: true,
-    fullAssets: ["IMG_2007", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_3677"],
-    displayAssets: ["IMG_3635", "IMG_2007", "IMG_3636", "IMG_3637", "IMG_3677"],
+    fullAssets: ["IMG_3642", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_2007", "IMG_3677"],
+    displayAssets: ["IMG_3642", "IMG_3635", "IMG_3636", "IMG_3637"],
   },
   {
     id: "job-4",
@@ -372,7 +400,7 @@ export const galleryProjects: GalleryProject[] = [
       "Steps, trim, and the front entry transition were repainted for a cleaner arrival.",
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: false,
-    fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
+    fullAssets: ["IMG_3603", "IMG_3647", "IMG_3627", "IMG_3626", "IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3591", "IMG_3592", "IMG_3593"],
     displayAssets: [],
   },
   {
@@ -382,7 +410,7 @@ export const galleryProjects: GalleryProject[] = [
       "A bold color update that gives the front door and steps an instant visual lift.",
     services: ["Exterior Painting", "Door & Detail Work"],
     featured: false,
-    fullAssets: ["IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3647", "IMG_3591", "IMG_3592", "IMG_3593"],
+    fullAssets: ["IMG_3603", "IMG_3647", "IMG_3627", "IMG_3626", "IMG_1741", "IMG_3628", "IMG_3629", "IMG_3630", "IMG_3591", "IMG_3592", "IMG_3593"],
     displayAssets: [],
   },
   {
@@ -402,7 +430,7 @@ export const galleryProjects: GalleryProject[] = [
       "Lower-level steps and entry doors refreshed to clean up the approach.",
     services: ["Door & Detail Work", "Interior Painting"],
     featured: false,
-    fullAssets: ["IMG_2007", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_3677"],
+    fullAssets: ["IMG_3642", "IMG_3635", "IMG_3636", "IMG_3637", "IMG_2007", "IMG_3677"],
     displayAssets: [],
   },
   {
@@ -443,7 +471,7 @@ export const galleryProjects: GalleryProject[] = [
     services: ["Interior Painting", "Accent Walls", "Drywall & Surface Repair"],
     featured: false,
     fullAssets: ["IMG_5629", "IMG_5630", "IMG_8363", "IMG_8364", "IMG_8365"],
-    displayAssets: ["IMG_5629", "IMG_5630", "IMG_8363", "IMG_8364", "IMG_8365"],
+    displayAssets: [],
   },
   {
     id: "job-12",
