@@ -1,467 +1,266 @@
 import { Play } from "lucide-react";
 
-type StageLabel = "BEFORE" | "AFTER" | "DURING";
-type DetailLabel =
-  | "Door"
-  | "Stairs"
-  | "Bathroom"
-  | "Basement"
-  | "Deck"
-  | "Exterior"
-  | "Interior";
+type StageLabel = "BEFORE" | "AFTER";
 
 type GalleryMedia = {
   type: "image" | "video";
   src: string;
   stage: StageLabel;
-  detail?: DetailLabel;
-  caption?: string;
+  detail?: string;
 };
 
 type GallerySet = {
   title: string;
-  description?: string;
   items: GalleryMedia[];
 };
 
+function image(id: string, stage: StageLabel, detail?: string): GalleryMedia {
+  return {
+    type: "image",
+    src: `/ywp-album/images/IMG_${id}.jpg`,
+    stage,
+    detail,
+  };
+}
+
+function video(id: string, stage: StageLabel, detail?: string): GalleryMedia {
+  return {
+    type: "video",
+    src: `/ywp-album/videos/IMG_${id}.MOV`,
+    stage,
+    detail,
+  };
+}
+
 const GALLERY_SETS: readonly GallerySet[] = [
   {
-    title: "Full Exterior Restoration",
+    title: "Project 1 — Brown House: Exterior",
     items: [
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9338.MOV",
-        stage: "AFTER",
-        detail: "Exterior",
-      },
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9339.MOV",
-        stage: "AFTER",
-        detail: "Exterior",
-      },
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9340.MOV",
-        stage: "AFTER",
-        detail: "Exterior",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_9341.HEIC.png",
-        stage: "AFTER",
-        detail: "Exterior",
-      },
+      video("9338", "BEFORE", "Exterior"),
+      video("9339", "BEFORE", "Exterior"),
+      video("9340", "BEFORE", "Exterior"),
+      image("9341", "BEFORE", "Exterior"),
+      video("0827", "AFTER", "Exterior"),
+      video("0828", "AFTER", "Exterior"),
+      video("0829", "AFTER", "Exterior"),
+      video("0830", "AFTER", "Exterior"),
     ],
   },
   {
-    title: "Hallway Stair Restoration",
+    title: "Project 1 — Brown House: Basement",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3669.HEIC.png",
-        stage: "BEFORE",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3675.HEIC.png",
-        stage: "DURING",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3676.HEIC.png",
-        stage: "AFTER",
-      },
+      image("3680", "BEFORE", "Basement"),
+      image("3681", "BEFORE", "Basement"),
+      image("3682", "BEFORE", "Basement"),
+      image("3683", "AFTER", "Basement"),
+      image("3684", "AFTER", "Basement"),
+      image("3685", "AFTER", "Basement"),
+      image("3686", "AFTER", "Basement"),
+      image("3687", "AFTER", "Basement"),
+      image("3688", "AFTER", "Basement"),
+      image("3689", "AFTER", "Basement"),
     ],
   },
   {
-    title: "Exterior Door Repaint",
+    title: "Project 1 — Brown House: Bathroom",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3603.HEIC.png",
-        stage: "BEFORE",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3605.HEIC.png",
-        stage: "AFTER",
-      },
+      image("3690", "BEFORE", "Bathroom"),
+      image("3691", "BEFORE", "Bathroom"),
+      image("3692", "BEFORE", "Bathroom"),
+      image("3693", "AFTER", "Bathroom"),
+      image("3694", "AFTER", "Bathroom"),
+      image("3695", "AFTER", "Bathroom"),
+      image("3696", "AFTER", "Bathroom"),
     ],
   },
   {
-    title: "Deck Restoration",
+    title: "Project 2 — Full Exterior + Entrances + Touch Ups: Exterior/Porch",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3591.HEIC.png",
-        stage: "AFTER",
-        detail: "Deck",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3593.HEIC.png",
-        stage: "AFTER",
-        detail: "Deck",
-      },
+      video("2006", "BEFORE", "Exterior/Porch"),
+      video("2007", "BEFORE", "Exterior/Porch"),
+      video("2008", "BEFORE", "Exterior/Porch"),
+      video("2009", "BEFORE", "Exterior/Porch"),
+      image("2210", "BEFORE", "Exterior/Porch"),
+      image("3635", "AFTER", "Exterior/Porch"),
+      image("3636", "AFTER", "Exterior/Porch"),
+      image("3637", "AFTER", "Exterior/Porch"),
+      image("3641", "AFTER", "Exterior/Porch"),
+      image("3642", "AFTER", "Exterior/Porch"),
+      image("3643", "AFTER", "Exterior/Porch"),
+      image("3644", "AFTER", "Exterior/Porch"),
+      image("3645", "AFTER", "Exterior/Porch"),
+      image("3646", "AFTER", "Exterior/Porch"),
     ],
   },
   {
-    title: "Front Porch Repainting",
+    title: "Project 2 — Full Exterior + Entrances + Touch Ups: Front Entrance",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3635.HEIC.png",
-        stage: "AFTER",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3636.HEIC.png",
-        stage: "AFTER",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3637.HEIC.png",
-        stage: "AFTER",
-      },
+      image("3661", "BEFORE", "Front Entrance"),
+      image("3662", "BEFORE", "Front Entrance"),
+      image("3663", "BEFORE", "Front Entrance"),
+      image("3664", "BEFORE", "Front Entrance"),
+      image("3665", "BEFORE", "Front Entrance"),
+      image("3666", "BEFORE", "Front Entrance"),
+      image("3667", "BEFORE", "Front Entrance"),
+      image("3668", "BEFORE", "Front Entrance"),
+      image("3669", "BEFORE", "Front Entrance"),
+      image("3670", "BEFORE", "Front Entrance"),
+      image("3675", "BEFORE", "Front Entrance"),
+      image("3671", "AFTER", "Front Entrance"),
+      image("3672", "AFTER", "Front Entrance"),
+      image("3673", "AFTER", "Front Entrance"),
+      image("3674", "AFTER", "Front Entrance"),
+      image("3676", "AFTER", "Front Entrance"),
     ],
   },
   {
-    title: "Basement Stairs",
+    title: "Project 2 — Full Exterior + Entrances + Touch Ups: Back Entrance",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3681.HEIC.png",
-        stage: "BEFORE",
-        detail: "Basement",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3682.HEIC.png",
-        stage: "BEFORE",
-        detail: "Basement",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3683.HEIC.png",
-        stage: "AFTER",
-        detail: "Basement",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3684.HEIC.png",
-        stage: "AFTER",
-        detail: "Basement",
-      },
+      image("3677", "AFTER", "Back Entrance"),
+      image("3678", "AFTER", "Back Entrance"),
+      image("3679", "AFTER", "Back Entrance"),
     ],
   },
   {
-    title: "Basement Full",
+    title: "Project 2 — Full Exterior + Entrances + Touch Ups: Door Touch Up",
+    items: [image("3700", "BEFORE", "Door Touch Up"), image("3699", "AFTER", "Door Touch Up")],
+  },
+  {
+    title: "Project 2 — Full Exterior + Entrances + Touch Ups: Wall Touch",
+    items: [image("3698", "BEFORE", "Wall Touch"), image("3697", "AFTER", "Wall Touch")],
+  },
+  {
+    title: "Project 3 — Porch + Patio + Entrances: Front Porch",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3680.HEIC.png",
-        stage: "BEFORE",
-        detail: "Basement",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3685.HEIC.png",
-        stage: "AFTER",
-        detail: "Basement",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3686.HEIC.png",
-        stage: "AFTER",
-        detail: "Basement",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3687.HEIC.png",
-        stage: "AFTER",
-        detail: "Basement",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3689.HEIC.png",
-        stage: "AFTER",
-        detail: "Basement",
-      },
+      image("3622", "AFTER", "Front Porch"),
+      image("3623", "AFTER", "Front Porch"),
+      image("3624", "AFTER", "Front Porch"),
+      image("3625", "AFTER", "Front Porch"),
+      image("3603", "AFTER", "Front Porch"),
     ],
   },
   {
-    title: "Bathroom (toilet area)",
+    title: "Project 3 — Porch + Patio + Entrances: Back Patio",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3692.HEIC.png",
-        stage: "BEFORE",
-        detail: "Bathroom",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3693.HEIC.png",
-        stage: "AFTER",
-        detail: "Bathroom",
-      },
+      image("1741", "BEFORE", "Back Patio"),
+      image("1742", "BEFORE", "Back Patio"),
+      image("1743", "BEFORE", "Back Patio"),
+      image("1744", "BEFORE", "Back Patio"),
+      image("3598", "AFTER", "Back Patio"),
+      image("3599", "AFTER", "Back Patio"),
+      image("3600", "AFTER", "Back Patio"),
+      image("3601", "AFTER", "Back Patio"),
+      image("3602", "AFTER", "Back Patio"),
+      image("3605", "AFTER", "Back Patio"),
     ],
   },
   {
-    title: "Bathroom (full)",
+    title: "Project 3 — Porch + Patio + Entrances: Side Entrance",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3690.HEIC.png",
-        stage: "BEFORE",
-        detail: "Bathroom",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3691.HEIC.png",
-        stage: "BEFORE",
-        detail: "Bathroom",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3694.HEIC.png",
-        stage: "AFTER",
-        detail: "Bathroom",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3696.HEIC.png",
-        stage: "AFTER",
-        detail: "Bathroom",
-      },
+      image("3628", "AFTER", "Side Entrance"),
+      image("3629", "AFTER", "Side Entrance"),
+      image("3630", "AFTER", "Side Entrance"),
+      image("3631", "AFTER", "Side Entrance"),
+      image("3632", "AFTER", "Side Entrance"),
     ],
   },
   {
-    title: "Bedroom repaint",
+    title: "Project 3 — Porch + Patio + Entrances: Basement Entrance",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_7130.HEIC.png",
-        stage: "BEFORE",
-        detail: "Interior",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_8362.HEIC.png",
-        stage: "AFTER",
-        detail: "Interior",
-      },
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_8363.MOV",
-        stage: "AFTER",
-        detail: "Interior",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_8364.HEIC.png",
-        stage: "AFTER",
-        detail: "Door",
-      },
+      image("3627", "BEFORE", "Basement Entrance"),
+      image("3626", "AFTER", "Basement Entrance"),
+      image("3647", "AFTER", "Basement Entrance"),
     ],
   },
   {
-    title: "Bedroom (second room same house)",
+    title: "Project 4 — Water Damage Ceiling",
     items: [
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_8365.MOV",
-        stage: "AFTER",
-        detail: "Interior",
-      },
+      image("3563", "BEFORE", "Ceiling"),
+      image("3564", "BEFORE", "Ceiling"),
+      image("3565", "BEFORE", "Ceiling"),
+      image("3566", "AFTER", "Ceiling"),
+      image("9055", "AFTER", "Ceiling"),
     ],
   },
   {
-    title: "Hallway door",
+    title: "Project 5 — Back Patio + Power Wash",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3700.HEIC.png",
-        stage: "BEFORE",
-        detail: "Door",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3699.HEIC.png",
-        stage: "AFTER",
-        detail: "Door",
-      },
+      image("9938", "BEFORE", "Back Patio + Power Wash"),
+      image("9941", "BEFORE", "Back Patio + Power Wash"),
+      image("9944", "BEFORE", "Back Patio + Power Wash"),
+      image("3591", "AFTER", "Back Patio + Power Wash"),
+      image("3592", "AFTER", "Back Patio + Power Wash"),
+      image("3593", "AFTER", "Back Patio + Power Wash"),
     ],
   },
   {
-    title: "Special request doors (AFTERS ONLY)",
+    title: "Project 6 — Power Washing",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3701.HEIC.png",
-        stage: "AFTER",
-        detail: "Door",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_5629.HEIC.png",
-        stage: "AFTER",
-        detail: "Door",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_5630.HEIC.png",
-        stage: "AFTER",
-        detail: "Door",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_8364.HEIC.png",
-        stage: "AFTER",
-        detail: "Door",
-      },
+      image("3606", "BEFORE", "Power Washing"),
+      image("3607", "BEFORE", "Power Washing"),
+      image("3609", "BEFORE", "Power Washing"),
+      image("3611", "BEFORE", "Power Washing"),
+      image("3608", "AFTER", "Power Washing"),
+      image("3610", "AFTER", "Power Washing"),
+      image("3612", "AFTER", "Power Washing"),
     ],
   },
   {
-    title: "Deck + Stair Combo Job (SECOND PROPERTY)",
+    title: "Project 7 — Bedrooms + Shutters: Bedroom 1",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_1742.HEIC.png",
-        stage: "BEFORE",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_1743.HEIC.png",
-        stage: "BEFORE",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3598.HEIC.png",
-        stage: "AFTER",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3599.HEIC.png",
-        stage: "AFTER",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3601.HEIC.png",
-        stage: "AFTER",
-      },
+      image("9154", "BEFORE", "Bedroom 1"),
+      image("9155", "BEFORE", "Bedroom 1"),
+      image("9156", "BEFORE", "Bedroom 1"),
+      image("7130", "AFTER", "Bedroom 1"),
+      image("8362", "AFTER", "Bedroom 1"),
+      video("8363", "AFTER", "Bedroom 1"),
+      image("8364", "AFTER", "Bedroom 1"),
     ],
   },
   {
-    title: "Power Washing",
+    title: "Project 7 — Bedrooms + Shutters: Bedroom 2",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3607.HEIC.png",
-        stage: "BEFORE",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3608.HEIC.png",
-        stage: "AFTER",
-      },      
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3609.HEIC.png",
-        stage: "BEFORE",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3610.HEIC.png",
-        stage: "AFTER",
-      },      
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3611.HEIC.png",
-        stage: "BEFORE",
-      },
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_3612.HEIC.png",
-        stage: "AFTER",
-      },
+      video("8365", "AFTER", "Bedroom 2"),
+      image("8366", "AFTER", "Bedroom 2"),
+      image("8367", "AFTER", "Bedroom 2"),
     ],
   },
   {
-    title: "Full Interior Restoration",
-    description: "Full interior repaint for a Rochester suburban home.",
+    title: "Project 7 — Bedrooms + Shutters: Shutters",
+    items: [image("5629", "AFTER", "Shutters"), image("5630", "AFTER", "Shutters")],
+  },
+  {
+    title: "Project 8 — School Office",
+    items: [video("9080", "AFTER", "School Office")],
+  },
+  {
+    title: "Project 9 — Full Interior + Garage",
     items: [
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9096.MOV",
-        stage: "DURING",
-      },
+      video("9096", "BEFORE", "Full Interior + Garage"),
+      image("9098", "BEFORE", "Full Interior + Garage"),
+      video("9099", "BEFORE", "Full Interior + Garage"),
+      video("9100", "BEFORE", "Full Interior + Garage"),
+      video("9101", "BEFORE", "Full Interior + Garage"),
+      video("9137", "AFTER", "Full Interior + Garage"),
+      image("9138", "AFTER", "Full Interior + Garage"),
+      video("9140", "AFTER", "Full Interior + Garage"),
+      video("9141", "AFTER", "Full Interior + Garage"),
+      video("9142", "AFTER", "Full Interior + Garage"),
+      image("3701", "AFTER", "Full Interior + Garage"),
     ],
   },
   {
-    title: "Ceiling Paint Job",
-    description:
-      "We were called in for an emergency job to fix and repaint a ceiling damaged by water.",
+    title: "Project 10 — Front Entrance (Separate Set)",
     items: [
-      {
-        type: "image",
-        src: "/ywp-album/images/IMG_9055.HEIC.png",
-        stage: "DURING",
-      },
-    ],
-  },
-  {
-    title: "CONTRACT / UNIVERSITY JOB",
-    items: [
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9073.MOV",
-        stage: "BEFORE",
-      },
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9080.MOV",
-        stage: "AFTER",
-      },
-    ],
-  },
-  {
-    title: "Exterior",
-    items: [
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9099.MOV",
-        stage: "AFTER",
-        detail: "Exterior",
-      },
-    ],
-  },
-  {
-    title: "Interior Ceiling",
-    items: [
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9100.MOV",
-        stage: "AFTER",
-        detail: "Interior",
-      },
-    ],
-  },
-  {
-    title: "Bathroom (same house)",
-    items: [
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9101.MOV",
-        stage: "BEFORE",
-        detail: "Bathroom",
-      },
-      {
-        type: "video",
-        src: "/ywp-album/videos/IMG_9137.MOV",
-        stage: "AFTER",
-        detail: "Bathroom",
-      },
+      image("9343", "BEFORE", "Front Entrance"),
+      image("9344", "BEFORE", "Front Entrance"),
+      image("9345", "BEFORE", "Front Entrance"),
+      image("9346", "BEFORE", "Front Entrance"),
+      image("9348", "BEFORE", "Front Entrance"),
+      image("9729", "AFTER", "Front Entrance"),
+      image("9731", "AFTER", "Front Entrance"),
+      image("9732", "AFTER", "Front Entrance"),
+      image("9734", "AFTER", "Front Entrance"),
     ],
   },
 ] as const;
@@ -483,7 +282,7 @@ function MediaTile({ item }: { item: GalleryMedia }) {
       {item.type === "image" ? (
         <img
           src={item.src}
-          alt={item.stage}
+          alt={`${item.detail ?? "Gallery item"} ${item.stage}`}
           className="h-full min-h-[260px] w-full object-cover"
           loading="lazy"
         />
@@ -532,9 +331,6 @@ export function GalleryPage({ onEstimateClick: _onEstimateClick }: GalleryPagePr
             <section key={setItem.title} className="space-y-4">
               <div className="space-y-1">
                 <h2 className="text-lg font-semibold text-[#111827]">{setItem.title}</h2>
-                {setItem.description ? (
-                  <p className="text-sm text-[#5a5a5a]">{setItem.description}</p>
-                ) : null}
               </div>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
                 {setItem.items.map((item) => (

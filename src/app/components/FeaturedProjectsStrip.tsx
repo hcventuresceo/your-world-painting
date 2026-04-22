@@ -7,7 +7,7 @@ interface FeaturedProjectsStripProps {
   onNavigate?: (page: string) => void;
 }
 
-const FEATURED_JOB_IDS = ["job-1", "job-10", "job-13", "job-2", "job-3"] as const;
+const FEATURED_JOB_IDS = ["job-1", "job-10", "job-13", "job-3"] as const;
 
 const FEATURED_PROJECTS = FEATURED_JOB_IDS.map((jobId) => {
   const project = galleryProjects.find((entry) => entry.id === jobId);
