@@ -13,7 +13,7 @@ export function Hero({ onEstimateClick, onNavigate }: HeroProps) {
         <img
           src={malikHeadshot}
           alt="Malik — Owner of Your World Painting"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/40"></div>
       </div>
