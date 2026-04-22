@@ -1,321 +1,550 @@
-import { useState } from "react";
-import { Phone } from "lucide-react";
-import {
-  galleryProjects,
-  ALL_SERVICE_FILTERS,
-  resolveAssets,
-  type GalleryProject,
-  type MediaItem,
-} from "@/data/galleryProjects";
+import { Play } from "lucide-react";
 
-// ─── Project Card ─────────────────────────────────────────────────────────────
+type StageLabel = "BEFORE" | "AFTER" | "DURING";
+type DetailLabel =
+  | "Door"
+  | "Stairs"
+  | "Bathroom"
+  | "Basement"
+  | "Deck"
+  | "Exterior"
+  | "Interior";
 
-interface ProjectCardProps {
-  project: GalleryProject;
-  onEstimateClick: (hookText?: string) => void;
-}
+type GalleryMedia = {
+  type: "image" | "video";
+  src: string;
+  stage: StageLabel;
+  detail?: DetailLabel;
+  caption?: string;
+};
 
-function ProjectCard({ project, onEstimateClick }: ProjectCardProps) {
-  const [lightbox, setLightbox] = useState<string | null>(null);
-  const displayAssets = resolveAssets(project.displayAssets);
-  const hero = displayAssets[0];
-  const supportingAssets = displayAssets.slice(1);
-  const cols =
-    supportingAssets.length === 1
-      ? "grid-cols-1"
-      : supportingAssets.length === 2
-      ? "grid-cols-2"
-      : "grid-cols-2 md:grid-cols-3";
+type GallerySet = {
+  title: string;
+  description?: string;
+  items: GalleryMedia[];
+};
 
+const GALLERY_SETS: readonly GallerySet[] = [
+  {
+    title: "Full Exterior Restoration",
+    items: [
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9338.MOV",
+        stage: "AFTER",
+        detail: "Exterior",
+      },
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9339.MOV",
+        stage: "AFTER",
+        detail: "Exterior",
+      },
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9340.MOV",
+        stage: "AFTER",
+        detail: "Exterior",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_9341.HEIC.png",
+        stage: "AFTER",
+        detail: "Exterior",
+      },
+    ],
+  },
+  {
+    title: "Hallway Stair Restoration",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3669.HEIC.png",
+        stage: "BEFORE",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3675.HEIC.png",
+        stage: "DURING",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3676.HEIC.png",
+        stage: "AFTER",
+      },
+    ],
+  },
+  {
+    title: "Exterior Door Repaint",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3603.HEIC.png",
+        stage: "BEFORE",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3605.HEIC.png",
+        stage: "AFTER",
+      },
+    ],
+  },
+  {
+    title: "Deck Restoration",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3591.HEIC.png",
+        stage: "AFTER",
+        detail: "Deck",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3593.HEIC.png",
+        stage: "AFTER",
+        detail: "Deck",
+      },
+    ],
+  },
+  {
+    title: "Front Porch Repainting",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3635.HEIC.png",
+        stage: "AFTER",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3636.HEIC.png",
+        stage: "AFTER",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3637.HEIC.png",
+        stage: "AFTER",
+      },
+    ],
+  },
+  {
+    title: "Basement Stairs",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3681.HEIC.png",
+        stage: "BEFORE",
+        detail: "Basement",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3682.HEIC.png",
+        stage: "BEFORE",
+        detail: "Basement",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3683.HEIC.png",
+        stage: "AFTER",
+        detail: "Basement",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3684.HEIC.png",
+        stage: "AFTER",
+        detail: "Basement",
+      },
+    ],
+  },
+  {
+    title: "Basement Full",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3680.HEIC.png",
+        stage: "BEFORE",
+        detail: "Basement",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3685.HEIC.png",
+        stage: "AFTER",
+        detail: "Basement",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3686.HEIC.png",
+        stage: "AFTER",
+        detail: "Basement",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3687.HEIC.png",
+        stage: "AFTER",
+        detail: "Basement",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3689.HEIC.png",
+        stage: "AFTER",
+        detail: "Basement",
+      },
+    ],
+  },
+  {
+    title: "Bathroom (toilet area)",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3692.HEIC.png",
+        stage: "BEFORE",
+        detail: "Bathroom",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3693.HEIC.png",
+        stage: "AFTER",
+        detail: "Bathroom",
+      },
+    ],
+  },
+  {
+    title: "Bathroom (full)",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3690.HEIC.png",
+        stage: "BEFORE",
+        detail: "Bathroom",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3691.HEIC.png",
+        stage: "BEFORE",
+        detail: "Bathroom",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3694.HEIC.png",
+        stage: "AFTER",
+        detail: "Bathroom",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3696.HEIC.png",
+        stage: "AFTER",
+        detail: "Bathroom",
+      },
+    ],
+  },
+  {
+    title: "Bedroom repaint",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_7130.HEIC.png",
+        stage: "BEFORE",
+        detail: "Interior",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_8362.HEIC.png",
+        stage: "AFTER",
+        detail: "Interior",
+      },
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_8363.MOV",
+        stage: "AFTER",
+        detail: "Interior",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_8364.HEIC.png",
+        stage: "AFTER",
+        detail: "Door",
+      },
+    ],
+  },
+  {
+    title: "Bedroom (second room same house)",
+    items: [
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_8365.MOV",
+        stage: "AFTER",
+        detail: "Interior",
+      },
+    ],
+  },
+  {
+    title: "Hallway door",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3700.HEIC.png",
+        stage: "BEFORE",
+        detail: "Door",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3699.HEIC.png",
+        stage: "AFTER",
+        detail: "Door",
+      },
+    ],
+  },
+  {
+    title: "Special request doors (AFTERS ONLY)",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3701.HEIC.png",
+        stage: "AFTER",
+        detail: "Door",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_5629.HEIC.png",
+        stage: "AFTER",
+        detail: "Door",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_5630.HEIC.png",
+        stage: "AFTER",
+        detail: "Door",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_8364.HEIC.png",
+        stage: "AFTER",
+        detail: "Door",
+      },
+    ],
+  },
+  {
+    title: "Deck + Stair Combo Job (SECOND PROPERTY)",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_1742.HEIC.png",
+        stage: "BEFORE",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_1743.HEIC.png",
+        stage: "BEFORE",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3598.HEIC.png",
+        stage: "AFTER",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3599.HEIC.png",
+        stage: "AFTER",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3601.HEIC.png",
+        stage: "AFTER",
+      },
+    ],
+  },
+  {
+    title: "Power Washing",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3607.HEIC.png",
+        stage: "BEFORE",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3608.HEIC.png",
+        stage: "AFTER",
+      },      
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3609.HEIC.png",
+        stage: "BEFORE",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3610.HEIC.png",
+        stage: "AFTER",
+      },      
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3611.HEIC.png",
+        stage: "BEFORE",
+      },
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_3612.HEIC.png",
+        stage: "AFTER",
+      },
+    ],
+  },
+  {
+    title: "Full Interior Restoration",
+    description: "Full interior repaint for a Rochester suburban home.",
+    items: [
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9096.MOV",
+        stage: "DURING",
+      },
+    ],
+  },
+  {
+    title: "Ceiling Paint Job",
+    description:
+      "We were called in for an emergency job to fix and repaint a ceiling damaged by water.",
+    items: [
+      {
+        type: "image",
+        src: "/ywp-album/images/IMG_9055.HEIC.png",
+        stage: "DURING",
+      },
+    ],
+  },
+  {
+    title: "CONTRACT / UNIVERSITY JOB",
+    items: [
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9073.MOV",
+        stage: "BEFORE",
+      },
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9080.MOV",
+        stage: "AFTER",
+      },
+    ],
+  },
+  {
+    title: "Exterior",
+    items: [
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9099.MOV",
+        stage: "AFTER",
+        detail: "Exterior",
+      },
+    ],
+  },
+  {
+    title: "Interior Ceiling",
+    items: [
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9100.MOV",
+        stage: "AFTER",
+        detail: "Interior",
+      },
+    ],
+  },
+  {
+    title: "Bathroom (same house)",
+    items: [
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9101.MOV",
+        stage: "BEFORE",
+        detail: "Bathroom",
+      },
+      {
+        type: "video",
+        src: "/ywp-album/videos/IMG_9137.MOV",
+        stage: "AFTER",
+        detail: "Bathroom",
+      },
+    ],
+  },
+] as const;
+
+function MediaTile({ item }: { item: GalleryMedia }) {
   return (
-    <>
-      <article
-        className={`border rounded-2xl overflow-hidden shadow-sm ${
-          project.featured
-            ? "border-[#111827] shadow-md"
-            : "border-[#e5e7eb]"
-        }`}
-      >
-        {/* ── Card header ── */}
-        <div
-          className={`border-b px-6 py-5 ${
-            project.featured
-              ? "bg-[#111827] border-[#2d3748]"
-              : "bg-[#f8f8f8] border-[#e5e7eb]"
-          }`}
-        >
-          <div className="flex flex-wrap items-center gap-2 mb-2">
-            {project.featured && (
-              <span className="text-xs font-bold uppercase tracking-wider text-[#f59e0b] border border-[#f59e0b]/40 bg-[#f59e0b]/10 px-2 py-0.5 rounded">
-                Featured Project
-              </span>
-            )}
-            {project.services.map((s) => (
-              <span
-                key={s}
-                className={`text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded ${
-                  project.featured
-                    ? "text-[#dc2626] border border-[#dc2626]/40 bg-[#dc2626]/10"
-                    : "text-[#dc2626] border border-[#dc2626]/30 bg-[#dc2626]/5"
-                }`}
-              >
-                {s}
-              </span>
-            ))}
-          </div>
+    <div className="group relative overflow-hidden rounded-2xl border border-[#e5e7eb] bg-[#f8f8f8]">
+      <div className="absolute left-3 top-3 z-10 flex flex-wrap gap-2">
+        <span className="rounded-full bg-[#111827] px-3 py-1 text-[11px] font-bold tracking-[0.18em] text-white">
+          {item.stage}
+        </span>
+        {item.detail ? (
+          <span className="rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold text-[#111827]">
+            {item.detail}
+          </span>
+        ) : null}
+      </div>
 
-          <h2
-            className={`text-xl font-bold mb-1 ${
-              project.featured ? "text-white" : "text-[#111827]"
-            }`}
+      {item.type === "image" ? (
+        <img
+          src={item.src}
+          alt={item.stage}
+          className="h-full min-h-[260px] w-full object-cover"
+          loading="lazy"
+        />
+      ) : (
+        <div className="relative">
+          <video
+            controls
+            preload="metadata"
+            playsInline
+            className="h-full min-h-[260px] w-full object-cover"
           >
-            {project.title}
-          </h2>
-          <p
-            className={`text-sm ${
-              project.featured ? "text-gray-300" : "text-[#5a5a5a]"
-            }`}
-          >
-            {project.subtitle}
-          </p>
-        </div>
-
-        {/* ── Hero image — displayAssets[0], full width ── */}
-        {hero && (
-          <div className="relative">
-            <button
-              onClick={() => setLightbox(hero.src)}
-              className="block w-full focus:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2626] group"
-            >
-              <img
-                src={hero.src}
-                alt={hero.caption}
-                className="w-full aspect-video object-cover group-hover:brightness-95 transition-[filter] duration-300"
-                loading="lazy"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-5 py-4">
-                <div className="flex items-end justify-between gap-3">
-                  <p className="text-white text-sm font-medium leading-snug">
-                    {hero.caption}
-                  </p>
-                </div>
-              </div>
-            </button>
-          </div>
-        )}
-
-        {supportingAssets.length > 0 && (
-          <div className="border-t border-[#e5e7eb] px-4 md:px-6 py-5">
-            <div className={`grid ${cols} gap-1.5`}>
-              {supportingAssets.map((item, i) => (
-                <button
-                  key={i}
-                  onClick={() => setLightbox(item.src)}
-                  className="relative overflow-hidden rounded-lg bg-black group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#dc2626]"
-                >
-                  <img
-                    src={item.src}
-                    alt={item.caption}
-                    className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-black/70 px-2.5 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <p className="text-white text-xs leading-snug">{item.caption}</p>
-                  </div>
-                </button>
-              ))}
+            <source src={item.src} />
+          </video>
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="rounded-full bg-black/60 p-4 text-white">
+              <Play className="size-8 fill-current" />
             </div>
           </div>
-        )}
-
-        {/* ── Card footer ── */}
-        <div className="bg-[#f8f8f8] border-t border-[#e5e7eb] px-6 py-4 flex justify-end">
-          <button
-            onClick={() =>
-              onEstimateClick(
-                `I want results like your ${project.title} project`
-              )
-            }
-            className="whitespace-nowrap bg-[#dc2626] hover:bg-[#b91c1c] text-white font-semibold px-5 py-2.5 rounded-md text-sm transition-colors"
-          >
-            Request Similar Estimate →
-          </button>
-        </div>
-      </article>
-
-      {/* ── Lightbox ── */}
-      {lightbox && (
-        <div
-          className="fixed inset-0 bg-black/92 z-50 flex items-center justify-center p-4"
-          onClick={() => setLightbox(null)}
-        >
-          <button
-            className="absolute top-4 right-4 text-white text-3xl font-bold leading-none hover:text-gray-300 z-10"
-            onClick={() => setLightbox(null)}
-            aria-label="Close"
-          >
-            ×
-          </button>
-          <img
-            src={lightbox}
-            alt="Full view"
-            className="max-w-full max-h-[92vh] object-contain rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
-          />
         </div>
       )}
-    </>
+    </div>
   );
 }
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
 
 interface GalleryPageProps {
   onEstimateClick: (hookText?: string) => void;
 }
 
-export function GalleryPage({ onEstimateClick }: GalleryPageProps) {
-  const [activeService, setActiveService] = useState("All");
-
-  const filtered =
-    activeService === "All"
-      ? galleryProjects.filter((p) => p.displayAssets.length > 0)
-      : galleryProjects.filter((p) =>
-          p.displayAssets.length > 0 && p.services.includes(activeService as never)
-        );
-
-  const featured = filtered.filter((p) => p.featured);
-  const supporting = filtered.filter((p) => !p.featured);
-
+export function GalleryPage({ onEstimateClick: _onEstimateClick }: GalleryPageProps) {
   return (
     <div className="min-h-screen bg-white">
-
-      {/* ── Hero ── */}
-      <div className="bg-[#111827] py-14 px-4 text-center">
-        <p className="text-[#dc2626] text-sm font-bold uppercase tracking-widest mb-3">
-          Real Work. Real Transformations.
-        </p>
-        <h1 className="text-3xl md:text-4xl font-bold text-white mb-3">
-          Every Job, Start to Finish
-        </h1>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-6">
-          Each project below is documented from before through after. Interior,
-          exterior, full buildings, detail work — this is how we work across
-          Rochester and Western New York.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <button
-            onClick={() =>
-              onEstimateClick(
-                "I'm looking at your gallery and want an estimate"
-              )
-            }
-            className="bg-[#dc2626] hover:bg-[#b91c1c] text-white font-semibold px-7 py-3 rounded-md text-base min-h-[48px] transition-colors"
-          >
-            Get a Free Estimate
-          </button>
-          <a
-            href="tel:7168150333"
-            className="flex items-center gap-2 border border-white/40 text-white font-semibold px-7 py-3 rounded-md text-base min-h-[48px] hover:bg-white/10 transition-colors"
-          >
-            <Phone className="size-4" />
-            716-815-0333
-          </a>
+      <div className="border-b border-[#e5e7eb] bg-[#111827] px-4 py-12 md:py-16">
+        <div className="container mx-auto">
+          <h1 className="text-3xl font-bold text-white md:text-4xl">
+            The Your World Painting Gallery
+          </h1>
+          <p className="mt-3 text-base text-gray-300 md:text-lg">
+            Rochester-shot. Transformation-focused. Built on real work.
+          </p>
         </div>
       </div>
 
-      {/* ── Filter bar ── */}
-      <div className="sticky top-[calc(33px+72px)] z-30 bg-white border-b border-[#e5e7eb] shadow-sm">
-        <div className="container mx-auto px-4">
-          <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
-            {ALL_SERVICE_FILTERS.map((s) => (
-              <button
-                key={s}
-                onClick={() => setActiveService(s)}
-                className={`whitespace-nowrap px-4 py-2 rounded-full text-sm font-semibold transition-colors border ${
-                  activeService === s
-                    ? "bg-[#111827] text-white border-[#111827]"
-                    : "bg-white text-[#3a3a3a] border-[#e5e7eb] hover:border-[#111827] hover:text-[#111827]"
-                }`}
-              >
-                {s}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ── Featured projects ── */}
-      {featured.length > 0 && (
-        <div className="container mx-auto px-4 pt-10 pb-6 space-y-10">
-          {featured.map((project) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              onEstimateClick={onEstimateClick}
-            />
+      <div className="container mx-auto px-4 py-8 md:py-10">
+        <div className="space-y-10">
+          {GALLERY_SETS.map((setItem) => (
+            <section key={setItem.title} className="space-y-4">
+              <div className="space-y-1">
+                <h2 className="text-lg font-semibold text-[#111827]">{setItem.title}</h2>
+                {setItem.description ? (
+                  <p className="text-sm text-[#5a5a5a]">{setItem.description}</p>
+                ) : null}
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
+                {setItem.items.map((item) => (
+                  <MediaTile key={`${setItem.title}-${item.src}`} item={item} />
+                ))}
+              </div>
+            </section>
           ))}
         </div>
-      )}
-
-      {/* ── Supporting projects ── */}
-      {supporting.length > 0 && (
-        <div className="container mx-auto px-4 pb-10">
-          {featured.length > 0 && (
-            <div className="flex items-center gap-4 mb-8">
-              <div className="h-px flex-1 bg-[#e5e7eb]" />
-              <span className="text-sm font-bold text-[#5a5a5a] uppercase tracking-wider whitespace-nowrap">
-                More Projects
-              </span>
-              <div className="h-px flex-1 bg-[#e5e7eb]" />
-            </div>
-          )}
-          <div className="space-y-8">
-            {supporting.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                onEstimateClick={onEstimateClick}
-              />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {filtered.length === 0 && (
-        <div className="container mx-auto px-4 py-20 text-center text-[#5a5a5a]">
-          No projects match that filter yet.
-        </div>
-      )}
-
-      {/* ── Bottom CTA ── */}
-      <div className="bg-[#111827] py-14 px-4 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-          Want Results Like These?
-        </h2>
-        <p className="text-gray-300 max-w-md mx-auto mb-6">
-          Free estimates on all jobs. Interior, exterior, drywall, staining —
-          Malik handles it all across Rochester and Western New York.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <button
-            onClick={() =>
-              onEstimateClick("I saw your gallery and I'm interested")
-            }
-            className="bg-[#dc2626] hover:bg-[#b91c1c] text-white font-semibold px-7 py-3 rounded-md text-base min-h-[48px] transition-colors"
-          >
-            Get a Free Estimate
-          </button>
-          <a
-            href="tel:7168150333"
-            className="flex items-center gap-2 border border-white/40 text-white font-semibold px-7 py-3 rounded-md text-base min-h-[48px] hover:bg-white/10 transition-colors"
-          >
-            <Phone className="size-4" />
-            716-815-0333
-          </a>
-        </div>
       </div>
-
     </div>
   );
 }
