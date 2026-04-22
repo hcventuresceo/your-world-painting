@@ -1,5 +1,5 @@
 import { Phone, Shield, Star, MapPin, Images } from "lucide-react";
-import heroCrew from "@/assets/hero-crew.jpg";
+import malikHeadshot from "@/assets/malik-headshot.jpg";
 
 interface HeroProps {
   onEstimateClick: (hookText?: string) => void;
@@ -11,9 +11,9 @@ export function Hero({ onEstimateClick, onNavigate }: HeroProps) {
     <section className="relative min-h-[75vh] md:min-h-[90vh] flex items-start">
       <div className="absolute inset-0 z-0">
         <img
-          src={heroCrew}
-          alt="Malik and the Your World Painting crew on a Rochester job site"
-          className="w-full h-full object-cover object-center"
+          src={malikHeadshot}
+          alt="Malik — Owner of Your World Painting"
+          className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/40"></div>
       </div>
