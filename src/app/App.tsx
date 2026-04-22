@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
-import { FeaturedProjectsStrip } from "./components/FeaturedProjectsStrip";
+import { HomepageTransformations } from "./components/HomepageTransformations";
 import { WhyChoose } from "./components/WhyChoose";
 import { Testimonials } from "./components/Testimonials";
 import { TestimonialsSection } from "./components/TestimonialsSection";
@@ -52,10 +52,7 @@ export default function App() {
         return (
           <>
             <Hero onEstimateClick={openEstimateModal} onNavigate={handleNavigate} />
-            <FeaturedProjectsStrip
-              onEstimateClick={openEstimateModal}
-              onNavigate={handleNavigate}
-            />
+            <HomepageTransformations />
             <Testimonials />
             <WhyChoose />
             <HowItWorks />
