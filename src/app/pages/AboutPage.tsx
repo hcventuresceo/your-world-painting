@@ -22,7 +22,7 @@ export function AboutPage({ onEstimateClick }: AboutPageProps) {
 
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div>
               <img
                 src={malikHeadshot}
@@ -35,13 +35,34 @@ export function AboutPage({ onEstimateClick }: AboutPageProps) {
                 Meet Malik
               </h2>
               <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
-                Your World Painting was built on one simple belief: every home deserves to look its best, and every homeowner deserves a painter they can trust.
+                Hi, my name is Malik Brooks, and I'm a business graduate and former college basketball player at Roberts Wesleyan University, where I now serve as an assistant coach. Basketball taught me a lot—discipline, consistency, and how to show up every day with purpose—and those are the same values I've carried into business.
               </p>
               <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
-                I started YWP right here in Rochester because I saw too many people get burned by painters who overpromised and underdelivered. Sloppy edges, skipped prep, no-shows. I wanted to do it differently.
+                Even with opportunities to continue playing professionally, I knew I wanted to build something of my own. I've always had that entrepreneurial mindset—wanting to create, grow, and take control of my future.
+              </p>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
+                Painting started as something simple—a way to stay productive and make money between semesters. But it quickly became more than that. I found myself enjoying the work, seeing the transformation firsthand, and realizing how much of a difference a quality paint job can make in a space. At the same time, I saw a gap—people needed reliable, detail-oriented service they could actually trust.
+              </p>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
+                That's when it clicked for me.
+              </p>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
+                I started treating every job like it was part of something bigger—learning, improving, and building a standard for the kind of company I wanted to run long-term.
+              </p>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
+                That's how Your World Painting came to life.
+              </p>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
+                At Your World Painting, everything we do is centered around quality and consistency. Whether it's a small room, a full home, or a commercial space, our focus is on delivering clean, professional results while making the process simple and stress-free for our clients. We offer interior and exterior painting, move-out repaints, power washing, and small repairs—handling projects of all sizes with the same level of care.
+              </p>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
+                Because at the end of the day, your home is your world. It's where you live, relax, and build your life—so it should feel right every time you walk into it. Our job is to help bring that feeling to life. To brighten your world, refresh your space, and create an environment you're proud to call your own.
+              </p>
+              <p className="text-[#5a5a5a] text-lg leading-relaxed mb-4">
+                We've had the opportunity to complete multiple projects for Roberts Wesleyan University, along with homeowners, landlords, and local businesses throughout the Rochester area. Every project is approached with the same level of care, professionalism, and attention to detail.
               </p>
               <p className="text-[#5a5a5a] text-lg leading-relaxed mb-6">
-                Every job I take — from a single accent wall to a full exterior repaint — gets the same attention to detail. I show up on time, I do the prep right, and I don't leave until the job looks exactly how it should.
+                At the end of the day, this is about more than just painting—it's about helping you shape your world into something better.
               </p>
               <div className="flex items-center gap-2 mb-8">
                 {[...Array(5)].map((_, i) => (
