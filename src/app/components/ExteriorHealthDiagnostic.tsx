@@ -38,7 +38,7 @@ interface ExteriorHealthDiagnosticProps {
 
 export function ExteriorHealthDiagnostic({ onCardClick }: ExteriorHealthDiagnosticProps) {
   const handleCardClick = (cardIndex: number) => {
-    let hookText = "Rochester weather is brutal on homes. Ricardo can stop the damage before it gets expensive. Where should we send your estimate?";
+    let hookText = "Rochester weather is brutal on homes. Malik can help stop the damage before it gets expensive. Where should we send your estimate?";
     let service = "";
     let header = "";
 
@@ -47,17 +47,17 @@ export function ExteriorHealthDiagnostic({ onCardClick }: ExteriorHealthDiagnost
       case 0: // Visible Rot or Siding Damage
         service = "siding";
         header = "Protect Your Home's Structure";
-        hookText = "Tell Ricardo where the rot is so he can bring the right tools. Where should he send your quote?";
+        hookText = "Tell Malik where the rot is so he can bring the right tools. Where should he send your quote?";
         break;
       case 1: // Drafty Windows or Doors
         service = "doors-windows";
         header = "Let's Stop Those Drafts";
-        hookText = "Ricardo can assess your energy loss this week. Where should he send your quote?";
+        hookText = "Malik can assess your energy loss this week. Where should he send your quote?";
         break;
       case 2: // Unsafe Porch or Deck
         service = "general";
         header = "Secure Your Outdoor Space";
-        hookText = "Tell Ricardo about your porch or deck concerns. Where should he send your quote?";
+        hookText = "Tell Malik about your porch or deck concerns. Where should he send your quote?";
         break;
     }
 

@@ -38,7 +38,7 @@ interface HomeHealthDiagnosticProps {
 
 export function HomeHealthDiagnostic({ onCardClick }: HomeHealthDiagnosticProps) {
   const handleCardClick = (cardIndex: number) => {
-    let hookText = "Most Rochester homes face this. Ricardo can fix it in as little as 3 days. Where should he send your custom quote?";
+    let hookText = "Most Rochester homes deal with this eventually. Malik can take a look and send over a custom quote. Where should he send it?";
     let service = "";
     let header = "";
 
@@ -47,17 +47,17 @@ export function HomeHealthDiagnostic({ onCardClick }: HomeHealthDiagnosticProps)
       case 0: // Drafty or Cold Rooms
         service = "doors-windows";
         header = "Let's Stop Those Drafts";
-        hookText = "Ricardo can assess your energy loss this week. Where should he send your quote?";
+        hookText = "Malik can assess the issue this week. Where should he send your quote?";
         break;
       case 1: // Visible Wood Rot or Peeling Paint
         service = "painting";
         header = "Protect Your Home's Structure";
-        hookText = "Tell Ricardo where the rot is so he can bring the right tools. Where should he send your quote?";
+        hookText = "Tell Malik where the damage is so he can bring the right tools. Where should he send your quote?";
         break;
       case 2: // Outdated or Cramped Interior
         service = "bathroom";
         header = "Let's Modernize Your Space";
-        hookText = "Ricardo specializes in kitchen and bathroom transformations. Where should he send your quote?";
+        hookText = "Malik specializes in kitchen and bathroom transformations. Where should he send your quote?";
         break;
     }
 

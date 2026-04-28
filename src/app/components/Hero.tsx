@@ -8,7 +8,7 @@ interface HeroProps {
 
 export function Hero({ onEstimateClick, onNavigate }: HeroProps) {
   return (
-    <section className="relative min-h-[75vh] md:min-h-[90vh] flex items-start">
+    <section className="relative min-h-[75vh] md:min-h-[90vh] overflow-hidden flex items-start">
       <div className="absolute inset-0 z-0">
         <img
           src={malikHeadshot}
