@@ -14,6 +14,7 @@ export function Header({ onEstimateClick, currentPage = "home", onNavigate }: He
 
   const navItems = [
     { label: "Gallery", page: "gallery" },
+    { label: "Reviews", page: "reviews" },
     { label: "About", page: "about" },
   ] as const;
 

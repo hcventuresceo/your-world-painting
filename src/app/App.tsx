@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
 import { HomepageTransformations } from "./components/HomepageTransformations";
@@ -23,6 +23,7 @@ export default function App() {
   const [modalHookText, setModalHookText] = useState<string | undefined>(undefined);
   const [preSelectedService, setPreSelectedService] = useState<string | undefined>(undefined);
   const [customHeader, setCustomHeader] = useState<string | undefined>(undefined);
+  const [pendingScrollTarget, setPendingScrollTarget] = useState<string | null>(null);
 
   const openEstimateModal = (hookText?: string, service?: string, header?: string) => {
     setModalHookText(hookText);
@@ -32,13 +33,35 @@ export default function App() {
   };
 
   const handleNavigate = (page: string) => {
-    console.log('handleNavigate called with page:', page);
+    if (page === "reviews") {
+      setCurrentPage("home");
+      setPendingScrollTarget("reviews");
+      window.scrollTo(0, 0);
+      return;
+    }
+
     setCurrentPage(page);
+    setPendingScrollTarget(null);
     window.scrollTo(0, 0);
   };
 
+  useEffect(() => {
+    if (!pendingScrollTarget) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      const target = document.getElementById(pendingScrollTarget);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setPendingScrollTarget(null);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [pendingScrollTarget, currentPage]);
+
   const renderPage = () => {
-    console.log('Current page:', currentPage);
     switch (currentPage) {
       case "gallery":
         return <GalleryPage onEstimateClick={openEstimateModal} />;
